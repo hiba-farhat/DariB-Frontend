@@ -9,6 +9,7 @@ import { ProfileComponent } from './users/profile/profile.component';
 import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
 import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { ChatComponent } from './users/chat/chat.component';
 
 const routes: Routes = [
   { path: 'home' ,component: HomeComponent},
@@ -17,8 +18,8 @@ const routes: Routes = [
   { path: 'admin' ,component: AdminComponent},
   { path: 'admin/annonces' ,component: AdminAnnoncesComponent},
   { path: 'admin/users' ,component: AdminUsersComponent},
-  {path:'profile',component:ProfileComponent}
-
+  {path:'profile',component:ProfileComponent},
+  {path:'chat',component:ChatComponent}
 ];
 
 @NgModule({

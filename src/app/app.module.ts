@@ -15,6 +15,7 @@ import { ProfileSidebarComponent } from './users/profile-sidebar/profile-sidebar
 import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './users/login/login.component';
+import { ChatComponent } from './users/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoginComponent } from './users/login/login.component';
     ProfileComponent,
     ProfileSidebarComponent,
     AdminUsersComponent,
-    LoginComponent
+    LoginComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

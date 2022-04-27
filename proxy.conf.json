@@ -1,0 +1,6 @@
+{
+    "/chatUsers": {
+      "target": "http://localhost:8081/DariTn",
+      "secure": false
+    }
+  }

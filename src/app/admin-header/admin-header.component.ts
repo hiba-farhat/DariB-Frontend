@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { TokenStorageService } from '../service/token-storage.service';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -9,14 +10,13 @@ import { UserService } from '../service/user.service';
 export class AdminHeaderComponent implements OnInit {
   currentUser: any;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,private token: TokenStorageService) {
     document.getElementById("app-body")!.className = "maxw1600 m0a dashboard-bd"
   }
 
-  ngOnInit(): void {
 
-    this.currentUser =localStorage.getItem('loggedUser');
-    
+  ngOnInit(): void {
+    this.currentUser = this.token.getUser();
   }
 
  
