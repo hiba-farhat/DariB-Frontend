@@ -1,0 +1,19 @@
+.login-btn{
+    text-decoration: none;
+    float: left;
+    padding: 14px 35px;
+    font-weight: 500;
+    color: #494949;
+    background: #eee;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.sign-btn{
+    background: none;
+    border: none;
+    color: #FF385C;
+}
+
