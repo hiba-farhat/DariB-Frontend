@@ -16,7 +16,18 @@ import { AdminUsersComponent } from './admin-users/admin-users.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './users/login/login.component';
 import { ChatComponent } from './users/chat/chat.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
+import { CodeActivationComponent } from './users/code-activation/code-activation.component';
+import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from '@abacritt/angularx-social-login';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +41,9 @@ import { ChatComponent } from './users/chat/chat.component';
     ProfileSidebarComponent,
     AdminUsersComponent,
     LoginComponent,
-    ChatComponent
+    ChatComponent,
+    ForgotPasswordComponent,
+    CodeActivationComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +51,35 @@ import { ChatComponent } from './users/chat/chat.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    SocialLoginModule,
+    MatInputModule,
+    MatSlideToggleModule
   ],
-  providers: [],
+  providers: [{
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider(
+            '947770575510-d7tlf1akkns5h1gairb5e6r2i2csn72u.apps.googleusercontent.com'
+          )
+        },
+        {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider('3000859393558507')
+        }
+      ],
+      onError: (err) => {
+        console.error(err);
+      }
+    } as SocialAuthServiceConfig,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -28,6 +28,7 @@
               "src/assets/front-assets/img"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css",
               "src/assets/front-assets/css/jquery-ui.css",
               "src/assets/front-assets/fonts/montserrat.css",
@@ -149,6 +150,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []

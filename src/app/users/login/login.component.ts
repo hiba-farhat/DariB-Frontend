@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/entity/user';
 import { AuthService } from 'src/app/service/auth.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
 import { UserService } from 'src/app/service/user.service';
+import { MatCheckboxChange } from '@angular/material/checkbox';
+import { FacebookLoginProvider, GoogleLoginProvider ,SocialAuthService} from '@abacritt/angularx-social-login';
+
 
 @Component({
   selector: 'app-login',
@@ -19,18 +23,22 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  form: any = {
-    username: null,
-    password: null
-  };
+
 
   roles: string[] = [];
- 
+
+
+
   constructor(private _service: UserService,
-    private authService: AuthService, 
+    private authService: AuthService,
     private tokenStorage: TokenStorageService,
-    private _router:Router
-  ) { }
+    private _router: Router,
+    private authSocialService:SocialAuthService
+  ) {}
+
+  
+
+
 
   ngOnInit(): void {
     document.getElementById("app-body")!.className = "homepage-9 hp-6 homepage-1"
@@ -39,9 +47,20 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
     }
+    this.authSocialService.authState.subscribe(
+      data =>{
+        this.isLoggedIn=(data!=null);
+      }
+    )
+
+   /*  this.authSocialService.authState.subscribe((user) => {
+      this.user = user;
+      this.isLoggedIn = (user != null);
+    });
+  } */
   }
 
- 
+
 
   showLoginForm(): void {
     document.getElementById('login-li')?.classList.add('current')
@@ -63,8 +82,8 @@ export class LoginComponent implements OnInit {
 
     this._service.loginUserFormRemote(this.user).subscribe(
 
- 
-  data => {
+
+      data => {
 
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
@@ -106,6 +125,33 @@ export class LoginComponent implements OnInit {
     this.alert = false
   }
 
+  signInWithGoogle(): void {
+    this.authSocialService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      data=> {
+        console.log(data);
+        this.currentUser=data;
+        this._router.navigate(["/profile"]);
+      }
 
+    );
+  }
+
+  signInWithFB(): void {
+    this.authSocialService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+      data=> {
+        console.log(data);
+        this.currentUser=data;
+        this._router.navigate(["/profile"]);
+
+      }
+    );
+  }
+
+  signOut(): void {
+    this.authSocialService.signOut();
+  }
+  refreshToken(): void {
+    this.authSocialService.refreshAuthToken(GoogleLoginProvider.PROVIDER_ID);
+  }
 
 }

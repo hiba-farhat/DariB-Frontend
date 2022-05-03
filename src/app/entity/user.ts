@@ -9,7 +9,7 @@ export class User {
     address: any;
     photo: any;
     status:any;
-    roles:string[];
+    role:string[];
 
 
     constructor(){

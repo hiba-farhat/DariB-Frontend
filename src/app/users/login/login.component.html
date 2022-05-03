@@ -6,11 +6,11 @@
             <div data-dismiss="modal" aria-label="Close" class="close-reg">
                 <i class="fa fa-times"></i>
             </div>
-            <h3>Welcome to <span>Find<strong>Houses</strong></span></h3>
+            <h3>Welcome to <span>Dari<strong>.Tn</strong></span></h3>
             <div class="soc-log fl-wrap">
                 <p>Login</p>
-                <a href="#" class="facebook-log"><i class="fa fa-facebook-official"></i>Log in with Facebook</a>
-                <a href="#" class="twitter-log"><i class="fa fa-twitter"></i> Log in with Twitter</a>
+                <a  class="facebook-log" (click)="signInWithFB()"><i class="fa fa-facebook-official"></i>Log in with Facebook</a>
+                <a class="twitter-log" (click)="signInWithGoogle()"><i class="fa fa-gmail-official"></i> Log in with Gmail</a>
             </div>
             <div class="log-separator fl-wrap"><span>Or</span></div>
             <div id="tabs-container">
@@ -57,13 +57,16 @@
                                     <label>Username *</label>
                                     <input name="username" type="text" onClick="this.select()" value="" [(ngModel)]="user.username">
                                     <label>Address *</label>
-                                    <input name="username" type="text" onClick="this.select()" value="" [(ngModel)]="user.address">
+                                    <input name="address" type="text" onClick="this.select()" value="" [(ngModel)]="user.address">
                                     <label>Password *</label>
                                     <input name="password" type="password" onClick="this.select()" value=""[(ngModel)]="user.password">
 
                                     <label>Phone number * </label>
                                     <input name="tel" type="text" onClick="this.select()" value="" [(ngModel)]="user.tel">
-                                   
+                                        
+ <!--                                    <label>Role * </label>
+                                    <input name="role" type="text" onClick="this.select()" value="" > -->
+
                                     <button type="submit" class="log-submit-btn"><span>Register</span></button>
                                 </form>
                             </div>

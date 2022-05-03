@@ -1,11 +1,12 @@
 <div class="col-lg-3 col-md-12 col-xs-12 pl-0 pr-0 user-dash">
     <div class="user-profile-box mb-0">
-        <div class="sidebar-header"><img src="assets/front-assets/images/logo-blue.svg" alt="header-logo2.png"> </div>
+        <div class="sidebar-header"><img src="assets/front-assets/images/logo.png" alt="header-logo2.png"> </div>
         <div class="header clearfix">
-            <img src="assets/front-assets/images/testimonials/ts-1.jpg" alt="avatar" class="img-fluid profile-img">
+            <img src={{currentUser.photoUrl}} alt="avatar" class="img-fluid profile-img">
         </div>
         <div class="active-user">
-            <h2>{{currentUser.username}}</h2>
+            <h2>{{currentUser.name}}</h2>
+            <h2>{{currentUser.email}}</h2>
         </div>
         <div class="detail clearfix">
             <ul class="mb-0">

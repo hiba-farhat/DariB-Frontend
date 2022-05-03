@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
 import { User } from '../entity/user';
+import { CookieService } from 'ngx-cookie-service';
 
 const AUTH_API = 'http://localhost:8081:/Dari.tn/api/auth/';
 
@@ -15,7 +16,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient,private _service: UserService, private _router: Router) { }
+  constructor(private http: HttpClient, private _service: UserService, private _router: Router
+    , private cook: CookieService) { }
+  private baseUrl = 'http://localhost:8081/DariTn/';
   user = new User();
   msg = '';
   currentUser: any;
@@ -32,18 +35,19 @@ export class AuthService {
     password: null
   }
 
-  login(){
+  login() {
     this._service.loginUserFormRemote(this.user).subscribe(
-    data => {
-      console.log("reponse recu");
-         this._router.navigate(["/profile"])
+      data => {
+        console.log("reponse recu");
+        this._router.navigate(["/profile"])
       },
-    
-    error => {console.log("exception occured");
-    this.msg="username ou login erroné merci de verifier"
-    }
-    )
+
+      error => {
+        console.log("exception occured");
+        this.msg = "username ou login erroné merci de verifier"
       }
+    )
+  }
 
   registerUser() {
     this._service.addUser(this.user).subscribe(
@@ -59,4 +63,59 @@ export class AuthService {
     )
     this.alert = true
   }
+
+  activeAccount(mail, code): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}activated`, { mail, code }).pipe(
+      map(
+        response => {
+          return response;
+        }
+      )
+    )
+  }
+
+  checkEmail(email): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}checkEmail`, { email }).pipe(
+      map(
+        response => {
+          return response;
+        }
+      )
+    )
+  }
+
+  resetPassword(email, code, password): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}resetPassword`, { email, code, password }).pipe(
+      map(
+        response => {
+          return response;
+        }
+      )
+    )
+  }
+
+  getAuthentication() {
+    return sessionStorage.getItem("email");
+  }
+
+ /*  getToken() {
+    if (this.getAuthentication()) {
+      return sessionStorage.getItem('token')
+    }
+  } */
+
+  isLogin(): boolean {
+    return !(sessionStorage.getItem('email') == null ||
+      sessionStorage.getItem('token') == null);
+  }
+  logOut() {
+    sessionStorage.removeItem('email');
+    sessionStorage.removeItem('token');
+    this.cook.delete('email');
+    this.cook.delete('token');
+  }
+
+
+  
+
 }

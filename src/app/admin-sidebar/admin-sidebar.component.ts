@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenStorageService } from '../service/token-storage.service';
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -10,13 +11,12 @@ export class AdminSidebarComponent implements OnInit {
   nom:any;
   prenom:any;
 
-  constructor() { }
+  constructor(private token: TokenStorageService ) {}
 
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
 
-    this.currentUser =localStorage.getItem('loggedUser');
-    this.nom= localStorage.getItem('nom');
-    this.prenom= localStorage.getItem('prenom');
+
     
   }
 

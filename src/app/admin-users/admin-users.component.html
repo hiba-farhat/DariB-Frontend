@@ -80,6 +80,20 @@
 
                         <!--                         <a class="nav-link" (click)="onOpenModal(null,'add')">Add User </a>
  -->
+                        <aside class="col-lg-3 col-md-12 "style = "position:relative; left:780px; top:50px;">
+                            <div class="widget">
+                                <div class="input-group ">
+                                    <input type="search" (ngModelChange)="searchUsers(key.value)" 
+                                    #key="ngModel" ngModel
+                                    name="key" id="searchName"
+                                    class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-outline-info " type="button"><i class="fa fa-search"
+                                                aria-hidden="true"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </aside>
                         <div>
                             <button type="button" (click)="onOpenModal(null,'add')"
                                 class="btn btn-outline-info btn-lg btn-lg btn-circle ml-2"><i class="fa fa-plus"></i>
@@ -92,12 +106,15 @@
                             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
                                 <use xlink:href="#check-circle-fill" />
                             </svg>
-                            <strong> User added successfully !</strong> 
+                            <strong> User added successfully !</strong>
                             <button (click)="closeAlert()" type="button" class="close" data-dismiss="modal"
                                 aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+
+
+
 
                         <!-- ********************************* list Users **********************
  -->
@@ -244,7 +261,7 @@
                                 </div>
                             </div>
                         </div>
- 
+
                         <!-- Edit Modal -->
                         <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog"
                             aria-labelledby="UserEditModalLabel" aria-hidden="true">
@@ -342,7 +359,7 @@
                             </div>
                         </div>
 
-                    <!--     <div class="modal fade" id="lockUserModal" tabindex="-1" role="dialog"
+                        <!--     <div class="modal fade" id="lockUserModal" tabindex="-1" role="dialog"
                         aria-labelledby="lockModelLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -378,7 +395,7 @@
         <!-- END FOOTER -->
 
         <!-- START PRELOADER -->
-      <!--      <div id="preloader">
+        <!--      <div id="preloader">
             <div id="status">
                 <div class="status-mes"></div>
             </div>

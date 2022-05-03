@@ -5,6 +5,7 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms'
+import { TokenStorageService } from '../service/token-storage.service';
 
 
 @Component({
@@ -18,20 +19,17 @@ export class AdminUsersComponent implements OnInit {
   public deleteUser: User;
   public lockUser: User;
 
-  selectedFile: File;
-  retrievedImage: any;
-  base64Data: any;
-  retrieveResonse: any;
-  message: string;
-  imageName: any;
-alert:boolean=false
 
-  constructor(public userservice: UserService,private httpClient: HttpClient) { }
+  alert: boolean = false
+
+  constructor(public userservice: UserService, private httpClient: HttpClient,private token: TokenStorageService) { }
   currentUser: any;
 
 
   ngOnInit(): void {
     this.getAllUsers();
+    this.currentUser = this.token.getUser();
+
   }
 
   public getAllUsers(): void {
@@ -59,11 +57,11 @@ alert:boolean=false
         addForm.reset();
       }
     );
-    this.alert=true
+    this.alert = true
   }
 
-  closeAlert(){
-    this.alert=false
+  closeAlert() {
+    this.alert = false
   }
 
   public onUpdateUser(User: User): void {
@@ -90,22 +88,37 @@ alert:boolean=false
     );
   }
 
-  
-/*   public onLockUser(UserId: number,status: boolean): void {
-    this.userservice.lockUser(UserId,status).subscribe(
-      (response: any) => {
-        console.log(response);
-        this.getAllUsers();
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+
+  /*   public onLockUser(UserId: number,status: boolean): void {
+      this.userservice.lockUser(UserId,status).subscribe(
+        (response: any) => {
+          console.log(response);
+          this.getAllUsers();
+        },
+        (error: HttpErrorResponse) => {
+          alert(error.message);
+        }
+      );
+    } */
+
+  public searchUsers(key: string): void {
+    const result: User[] = [];
+    for (const user of this.users) {
+      if (user.username.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || user.email.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || user.tel.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        || user.nom.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+
+        result.push(user);
       }
-    );
-  } */
+    }
+    this.users=result;
+    if(result.length ===0 || !key){
+      this.getAllUsers();
+    }
+  }
 
-
-
-  public onOpenModal(user: User  , mode: string): void {
+  public onOpenModal(user: User, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
@@ -131,5 +144,5 @@ alert:boolean=false
   }
 
 
-    
+
 }
