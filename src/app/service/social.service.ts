@@ -27,23 +27,8 @@ export class SocialService {
                   )
                 );
               }
-  /*   .pipe(
-      map(
-        response => {
-          sessionStorage.setItem("email",response.email)
-          sessionStorage.setItem("token",`Bearer ${response.token}`)
-          this.cook.set("email",response.email)
-          this.cook.set("token",`Bearer ${response.token}`)
-          return response;
-        }
-      )
-    ) */
+
   
-
- /*  public google(tokenDto: TokenDto): Observable<TokenDto> {
-    return this.httpClient.post<TokenDto>(this.oauthURL + 'google', tokenDto, cabecera);
-  } */
-
   loginWithFacebook(token): Observable<any>{
     console.log("token social fb "+token);
 
