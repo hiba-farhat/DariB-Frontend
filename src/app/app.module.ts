@@ -25,12 +25,14 @@ import { updatePasswordComponent } from './users/update-password/update-password
 import { CodeActivationComponent } from './users/code-activation/code-activation.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
-
-
+import { ToastrModule } from 'ngx-toastr';
 import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,9 +49,12 @@ import {
     ChatComponent,
     updatePasswordComponent,
     CodeActivationComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    
   ],
   imports: [
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     FormsModule,

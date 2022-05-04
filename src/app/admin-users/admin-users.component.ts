@@ -52,6 +52,7 @@ export class AdminUsersComponent implements OnInit {
 
   public onAddUser(addForm: NgForm): void {
     document.getElementById('add-User-form')?.click();
+    console.log(addForm.value);
     this.userservice.addUser(addForm.value).subscribe(
       (response: User) => {
         console.log(response);

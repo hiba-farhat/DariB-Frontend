@@ -102,16 +102,18 @@
                             <br>
                         </div>
 
-<!--                         <div *ngIf="alert" class="alert alert-success d-flex align-items-center" role="alert">
+                         <div *ngIf="alert" class="alert alert-success d-flex align-items-center" role="alert">
                             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
                                 <use xlink:href="#check-circle-fill" />
                             </svg>
+
+
                             <strong> User added successfully !</strong>
                             <button (click)="closeAlert()" type="button" class="close" data-dismiss="modal"
                                 aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                        </div> -->
+                        </div> 
 
 
 
@@ -256,6 +258,45 @@
                                                   <option  *ngFor="let c of Keysr()">{{c}}</option>
                                                 </select>
                                               </div> -->
+                                              
+
+                                              <!-- Default checkbox -->
+                                              <div class="form-check form-check-inline">
+                                                <input
+                                                  mdbCheckbox
+                                                  class="form-check-input"
+                                                  type="checkbox"
+                                                  id="inlineCheckbox1"
+                                                  value="admin"
+                                                  ngModel name="role"
+                                                />
+                                                <label class="form-check-label" for="inlineCheckbox1">1</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input
+                                                  mdbCheckbox
+                                                  class="form-check-input"
+                                                  type="checkbox"
+                                                  id="inlineCheckbox2"
+                                                  value="admin"
+                                                  ngModel name="role"
+                                                />
+                                                <label class="form-check-label" for="inlineCheckbox2">2</label>
+                                              </div>
+                                              <div class="form-check form-check-inline">
+                                                <input
+                                                  mdbCheckbox
+                                                  class="form-check-input"
+                                                  type="checkbox"
+                                                  id="inlineCheckbox3"
+                                                  value="option3"
+                                                  [disabled]="true"
+                                                />
+                                                <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+                                              </div>
+ 
+
+
                                             <div class="modal-footer">
                                                 <button type="button" id="add-User-form" class="btn btn-secondary"
                                                     data-dismiss="modal">Close</button>

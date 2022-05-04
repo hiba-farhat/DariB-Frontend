@@ -48,7 +48,8 @@
               "src/assets/front-assets/css/slick.css",
               "src/assets/front-assets/css/styles.css",
               "src/assets/front-assets/css/maps.css",
-              "src/assets/front-assets/css/colors/pink.css"
+              "src/assets/front-assets/css/colors/pink.css",
+              "node_modules/ngx-toastr/toastr.css" 
 
             ],
             "scripts": [
