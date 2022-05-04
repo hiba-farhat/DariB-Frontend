@@ -12,6 +12,8 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,34 +37,6 @@ export class AuthService {
     password: null
   }
 
-  login() {
-    this._service.loginUserFormRemote(this.user).subscribe(
-      data => {
-        console.log("reponse recu");
-        this._router.navigate(["/profile"])
-      },
-
-      error => {
-        console.log("exception occured");
-        this.msg = "username ou login erroné merci de verifier"
-      }
-    )
-  }
-
-  registerUser() {
-    this._service.addUser(this.user).subscribe(
-      data => {
-        console.log("reponse recu");
-        this.msg = " registration succeeded";
-
-      },
-      error => {
-        console.log("execption occured");
-        this.msg = error.error;
-      }
-    )
-    this.alert = true
-  }
 
   activeAccount(mail, code): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}activated`, { mail, code }).pipe(
@@ -98,11 +72,11 @@ export class AuthService {
     return sessionStorage.getItem("email");
   }
 
- /*  getToken() {
+  getToken(): any {
     if (this.getAuthentication()) {
       return sessionStorage.getItem('token')
     }
-  } */
+  } 
 
   isLogin(): boolean {
     return !(sessionStorage.getItem('email') == null ||
@@ -114,7 +88,6 @@ export class AuthService {
     this.cook.delete('email');
     this.cook.delete('token');
   }
-
 
   
 

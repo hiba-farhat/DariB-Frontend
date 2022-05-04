@@ -10,6 +10,8 @@ import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
 import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { ChatComponent } from './users/chat/chat.component';
+import { updatePasswordComponent } from './users/update-password/update-password.component';
+import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   { path: 'home' ,component: HomeComponent},
@@ -19,7 +21,10 @@ const routes: Routes = [
   { path: 'admin/annonces' ,component: AdminAnnoncesComponent},
   { path: 'admin/users' ,component: AdminUsersComponent},
   {path:'profile',component:ProfileComponent},
-  {path:'chat',component:ChatComponent}
+  {path:'chat',component:ChatComponent},
+  {path: 'update', component:updatePasswordComponent},
+  {path: 'reset', component:ForgotPasswordComponent}
+
 
 
 ];
@@ -40,5 +45,8 @@ export const routingComponents = [
   ProfileComponent,
   AdminSidebarComponent,
   AdminFooterComponent,
-  AdminHeaderComponent
+  AdminHeaderComponent,
+  updatePasswordComponent,
+  ForgotPasswordComponent
+
 ];

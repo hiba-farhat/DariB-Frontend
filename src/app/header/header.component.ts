@@ -24,26 +24,8 @@ export class HeaderComponent implements OnInit {
   public landingPage:string = "/home/dashboard/order";
   
 
-  user = new User();
-  msg = '';
-  currentUser: any;
-  accessToken: any;
-  alert: boolean = false;
-  isLoggedIn = false;
-  isLoginFailed = false;
-  errorMessage = '';
-  public loggedUser: string;
-  public isloggedIn: Boolean = false;
-  public roles: string[];
-  form: any = {
-    username: null,
-    password: null
-  }
- 
-  constructor(private _service: UserService, private _router: Router
 
-    ) {
-  }
+  constructor() {}
 
   ngOnInit(): void {
     document.getElementById("app-body")!.className = "homepage-9 hp-6 homepage-1"
@@ -68,81 +50,5 @@ export class HeaderComponent implements OnInit {
 
 
 
-
-  /* loginUser() {
-    this._service.loginUserFormRemote(this.user).subscribe(
-      data => {
-        console.log(data);
-        let validUser: Boolean = false;
-        console.log("reponse recu");
-        validUser = true;
-        this.loggedUser = this.user.username;
-        this.isloggedIn = true;
-        localStorage.setItem('loggedUser', this.loggedUser);
-        /* localStorage.setItem('nom', String(this.nom));
-        localStorage.setItem('prenom', String(this.prenom));
-        localStorage.setItem('email', String(this.email));
-        localStorage.setItem('id', String(this.id)); 
-
-        console.log("loggedUser" + this.loggedUser);
-
-        this.accessToken = data.headers.get('Authorization');
-
-        this._service.saveToken(this.accessToken);
-        console.log("tokeen : " + this.accessToken); 
-         localStorage.setItem('token',jwt);
- 
-      },
-
-      error => {
-        console.log("exception occured");
-        this.msg = "username ou login erroné merci de verifier"
-      }
-    )
-  }
-
-
-
-
-  onSubmit(): void {
-    const { username, password } = this.form;
-
-    this._service.loginUserFormRemote(this.user).subscribe(
-      data => {
-        this._router.navigate(["/profile"]);
-      },
-
-      error => {
-        console.log("exception occured");
-        this.msg = "username ou login erroné merci de verifier";
-        this.isLoginFailed = true;
-
-      }
-    );
-  }
-
-  reloadPage(): void {
-    window.location.reload();
-  }
-
-  registerUser() {
-    this._service.addUser(this.user).subscribe(
-      data => {
-        console.log("reponse recu");
-        this.msg = " registration succeeded";
-
-      },
-      error => {
-        console.log("execption occured");
-        this.msg = error.error;
-      }
-    )
-    this.alert = true
-  }
-  closeAlert() {
-    this.alert = false
-  }
-
- */
 
 }

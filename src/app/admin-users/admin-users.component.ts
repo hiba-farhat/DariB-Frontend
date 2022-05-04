@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms'
 import { TokenStorageService } from '../service/token-storage.service';
+import { Role } from '../entity/role';
 
 
 @Component({
@@ -18,6 +19,11 @@ export class AdminUsersComponent implements OnInit {
   public editUser: User;
   public deleteUser: User;
   public lockUser: User;
+  roleType = Role;
+  Keysr(): Array<string> {
+    var Keys = Object.keys(this.roleType);
+    return Keys;
+  }
 
 
   alert: boolean = false

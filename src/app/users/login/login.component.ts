@@ -6,7 +6,9 @@ import { AuthService } from 'src/app/service/auth.service';
 import { TokenStorageService } from 'src/app/service/token-storage.service';
 import { UserService } from 'src/app/service/user.service';
 import { MatCheckboxChange } from '@angular/material/checkbox';
-import { FacebookLoginProvider, GoogleLoginProvider ,SocialAuthService} from '@abacritt/angularx-social-login';
+import { FacebookLoginProvider, GoogleLoginProvider, SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { SocialService } from 'src/app/service/social.service';
+import { TokenDto } from 'src/app/entity/token-dto';
 
 
 @Component({
@@ -24,40 +26,48 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
 
-
+  socialUser: SocialUser;
+  userLogged: SocialUser;
+  isLogged: boolean;
   roles: string[] = [];
-
+  isLogin: boolean;
 
 
   constructor(private _service: UserService,
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
     private _router: Router,
-    private authSocialService:SocialAuthService
-  ) {}
+    private authSocialService: SocialAuthService,
+    private social: SocialService
+  ) { }
 
-  
+
 
 
 
   ngOnInit(): void {
     document.getElementById("app-body")!.className = "homepage-9 hp-6 homepage-1"
 
-    if (this.tokenStorage.getToken()) {
+  /*   if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
-    }
-    this.authSocialService.authState.subscribe(
-      data =>{
-        this.isLoggedIn=(data!=null);
+    } */
+    /*   this.authSocialService.authState.subscribe(
+        data => {
+          this.isLoggedIn = (data != null);
+        }
+      ) */
+   /*  this.authSocialService.authState.subscribe(
+      data => {
+        this.userLogged = data;
+        this.isLogged = (this.userLogged != null && this.tokenStorage.getToken() != null);
       }
-    )
-
-   /*  this.authSocialService.authState.subscribe((user) => {
-      this.user = user;
-      this.isLoggedIn = (user != null);
-    });
-  } */
+    ); */
+    this.authSocialService.authState.subscribe(
+      data => {
+        this.isLogin = (data !=null);
+      }
+    );
   }
 
 
@@ -125,10 +135,30 @@ export class LoginComponent implements OnInit {
     this.alert = false
   }
 
+  /* signInWithGoogle(): void {
+    this.authSocialService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      data => {
+
+        this.social.loginWithGoogle(data.idToken).subscribe(
+          res =>{
+            console.log("hedhi reeeees"+res);
+          }
+        );
+       /*  this.currentUser = data;
+        this._router.navigate(["/profile"]); 
+      
+    ); 
+  } */
+
   signInWithGoogle(): void {
     this.authSocialService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       data=> {
         console.log(data);
+        this.social.loginWithGoogle(data.idToken).subscribe(
+          res =>{
+            console.log(res);
+          }
+        );
         this.currentUser=data;
         this._router.navigate(["/profile"]);
       }
@@ -138,9 +168,14 @@ export class LoginComponent implements OnInit {
 
   signInWithFB(): void {
     this.authSocialService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
-      data=> {
-        console.log(data);
-        this.currentUser=data;
+      data => {
+        this.social.loginWithFacebook(data.authToken).subscribe(
+          res => {
+            console.log(res);
+
+          }
+        );
+        this.currentUser = data;
         this._router.navigate(["/profile"]);
 
       }
@@ -153,5 +188,7 @@ export class LoginComponent implements OnInit {
   refreshToken(): void {
     this.authSocialService.refreshAuthToken(GoogleLoginProvider.PROVIDER_ID);
   }
+
+
 
 }

@@ -21,9 +21,12 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
+import { updatePasswordComponent } from './users/update-password/update-password.component';
 import { CodeActivationComponent } from './users/code-activation/code-activation.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
+import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
+
+
 import {
   GoogleLoginProvider,
   FacebookLoginProvider
@@ -42,8 +45,9 @@ import {
     AdminUsersComponent,
     LoginComponent,
     ChatComponent,
-    ForgotPasswordComponent,
-    CodeActivationComponent
+    updatePasswordComponent,
+    CodeActivationComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,7 @@ import {
     MatFormFieldModule,
     SocialLoginModule,
     MatInputModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',

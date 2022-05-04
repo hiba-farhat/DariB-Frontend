@@ -47,7 +47,11 @@ public addUser(user :User):Observable<any>{
 public loginUserFormRemote(user :User):Observable<any>{
   return this.httpClient.post<any>("http://localhost:8081/DariTn/api/auth/signin",user, httpOptions)
 
+} updatePassword(email: string, password: string, confirmPassword: string) {
+  return this.httpClient.put('http://localhost:8081/DariTn/user/updatepassword/' + email + '/' + password + '/' + confirmPassword, { responseType: 'text' });
 }
-
+forgotPassword(email: string) {
+  return this.httpClient.get('http://localhost:8081/DariTn/user/sendme/' + email);
+}
 
 }
