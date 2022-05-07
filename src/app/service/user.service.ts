@@ -54,4 +54,8 @@ forgotPassword(email: string) {
   return this.httpClient.get('http://localhost:8081/DariTn/user/sendme/' + email);
 }
 
+getRoles(): Observable<any>{
+return this.httpClient.get("http://localhost:8081/DariTn/role/allRoles")
+}
+
 }

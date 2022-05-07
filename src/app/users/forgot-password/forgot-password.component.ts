@@ -42,7 +42,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   showSuccess() {
-  //  this.toastr.success('Hello world!', 'Toastr fun!');
+    this.toastr.success('Hello world!', 'Toastr fun!');
   }
 
 

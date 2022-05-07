@@ -80,13 +80,11 @@
 
                         <!--                         <a class="nav-link" (click)="onOpenModal(null,'add')">Add User </a>
  -->
-                        <aside class="col-lg-3 col-md-12 "style = "position:relative; left:780px; top:50px;">
+                        <aside class="col-lg-3 col-md-12 " style="position:relative; left:780px; top:50px;">
                             <div class="widget">
                                 <div class="input-group ">
-                                    <input type="search" (ngModelChange)="searchUsers(key.value)" 
-                                    #key="ngModel" ngModel
-                                    name="key" id="searchName"
-                                    class="form-control" placeholder="Search for...">
+                                    <input type="search" (ngModelChange)="searchUsers(key.value)" #key="ngModel" ngModel
+                                        name="key" id="searchName" class="form-control" placeholder="Search for...">
                                     <span class="input-group-btn">
                                         <button class="btn btn-outline-info " type="button"><i class="fa fa-search"
                                                 aria-hidden="true"></i></button>
@@ -102,7 +100,7 @@
                             <br>
                         </div>
 
-                         <div *ngIf="alert" class="alert alert-success d-flex align-items-center" role="alert">
+                        <div *ngIf="alert" class="alert alert-success d-flex align-items-center" role="alert">
                             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
                                 <use xlink:href="#check-circle-fill" />
                             </svg>
@@ -113,7 +111,7 @@
                                 aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
-                        </div> 
+                        </div>
 
 
 
@@ -251,51 +249,31 @@
                                                 <input type="text" ngModel name="address" class="form-control"
                                                     id="address" placeholder="address" required>
                                             </div>
-                                           <!--  <div class="form-group">
+                                            <div class="form-group">
                                                 <label for="role">Role </label>
-                                                <select class="form-control" aria-label="Default select example" placeholder="Role" type="text" name="role"
-                                                        ngModel name ="role">
-                                                  <option  *ngFor="let c of Keysr()">{{c}}</option>
-                                                </select>
-                                              </div> -->
-                                              
+                                                  
 
-                                              <!-- Default checkbox -->
-                                              <div class="form-check form-check-inline">
-                                                <input
-                                                  mdbCheckbox
-                                                  class="form-check-input"
-                                                  type="checkbox"
-                                                  id="inlineCheckbox1"
-                                                  value="admin"
-                                                  ngModel name="role"
-                                                />
-                                                <label class="form-check-label" for="inlineCheckbox1">1</label>
-                                              </div>
-                                              <div class="form-check form-check-inline">
-                                                <input
-                                                  mdbCheckbox
-                                                  class="form-check-input"
-                                                  type="checkbox"
-                                                  id="inlineCheckbox2"
-                                                  value="admin"
-                                                  ngModel name="role"
-                                                />
-                                                <label class="form-check-label" for="inlineCheckbox2">2</label>
-                                              </div>
-                                              <div class="form-check form-check-inline">
-                                                <input
-                                                  mdbCheckbox
-                                                  class="form-check-input"
-                                                  type="checkbox"
-                                                  id="inlineCheckbox3"
-                                                  value="option3"
-                                                  [disabled]="true"
-                                                />
-                                                <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
-                                              </div>
- 
+                        <!--                         <div *ngFor="let role of lstRoles">
+                                                    <input ngModel name="role" type="checkbox" [value]="role.name"
+                                                        (change)="getRoleName($event,role.name)" >{{role.name}}
 
+                                                </div> -->
+<!-- 
+                                                <div *ngFor="let item of checkboxesDataList">
+                                                    <input ngModel type="checkbox" name="role" id="role" [value]=fetchCheckedIDs() (change)="changeSelection()">{{item.label}}
+                                                  </div>
+ -->
+
+
+                                                <!--   <select class="form-select" name="role" ngModel name="role">
+                                                    <option value="" selected disabled>Please select a status </option>
+                                                    <option value="[vendeur]"> vendeur</option>
+                                                    <option value=" [ " admin "] "> admin </option>
+
+                                                </select> 
+
+
+                                            </div>
 
                                             <div class="modal-footer">
                                                 <button type="button" id="add-User-form" class="btn btn-secondary"

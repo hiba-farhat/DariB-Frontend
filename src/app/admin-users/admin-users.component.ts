@@ -7,6 +7,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms'
 import { TokenStorageService } from '../service/token-storage.service';
 import { Role } from '../entity/role';
+//import { runInThisContext } from 'vm';
 
 
 @Component({
@@ -20,11 +21,9 @@ export class AdminUsersComponent implements OnInit {
   public deleteUser: User;
   public lockUser: User;
   roleType = Role;
-  Keysr(): Array<string> {
-    var Keys = Object.keys(this.roleType);
-    return Keys;
-  }
+  lstRoles:Role[];
 
+selectedItems:any;
 
   alert: boolean = false
 
@@ -35,7 +34,13 @@ export class AdminUsersComponent implements OnInit {
   ngOnInit(): void {
     this.getAllUsers();
     this.currentUser = this.token.getUser();
+    this.selectedItems = new Array<any>();
 
+    this.userservice.getRoles().subscribe(
+      data => {
+        this.lstRoles = data;
+      }
+    )
   }
 
   public getAllUsers(): void {
@@ -150,6 +155,20 @@ export class AdminUsersComponent implements OnInit {
     button.click();
   }
 
+  getRoleName(e:any,name:any){
+
+    if(!e.target.checkbox){
+      console.log(name+ ' checked');
+      this.selectedItems.push(name);
+    }else{
+      console.log(name+ ' not checked');
+      //this.selectedItems=this.selectedItems.filter(m=>m!=name);
+      this.selectedItems.push(name);
+
+    }
+    console.log(this.selectedItems);
+
+  }
 
 
 }

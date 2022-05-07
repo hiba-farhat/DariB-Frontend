@@ -1,8 +1,8 @@
-export enum Role {
-    ROLE_ADMIN = 'admin',
-    ROLE_USER = 'ROLE_USER',
-    ROLE_VENDEUR = 'ROLE_VENDEUR',
-  ROLE_ACHETEUR = 'ACROLE_ACHETEURHETEUR'
+import { Erole } from "./erole";
+
+export class Role {
+    id:any;
+    name:Erole;
 
   
   }
