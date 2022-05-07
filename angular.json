@@ -25,11 +25,18 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/assets/front-assets/img"
+              "src/assets/front-assets/img",
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images/",
+                "output": "./assets"
+              }
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css",
+              "src/assets/custom-buttons.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/leaflet/dist/leaflet.css",
               "src/assets/front-assets/css/jquery-ui.css",
               "src/assets/front-assets/fonts/montserrat.css",
               "src/assets/front-assets/font/flaticon.css",
@@ -48,8 +55,7 @@
               "src/assets/front-assets/css/slick.css",
               "src/assets/front-assets/css/styles.css",
               "src/assets/front-assets/css/maps.css",
-              "src/assets/front-assets/css/colors/pink.css",
-              "node_modules/ngx-toastr/toastr.css" 
+              "src/assets/front-assets/css/colors/pink.css"
 
             ],
             "scripts": [
@@ -84,9 +90,11 @@
               "src/assets/front-assets/js/map-style2.js",
               "src/assets/front-assets/js/range.js",
               "src/assets/front-assets/js/color-switcher.js"
+              
+              ]
         
             
-            ]
+            
           },
           "configurations": {
             "production": {
@@ -151,7 +159,6 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.css"
             ],
             "scripts": []
