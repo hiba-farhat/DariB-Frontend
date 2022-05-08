@@ -1,0 +1,79 @@
+<!--register form -->
+<div id="signModal" class="login-and-register-form modal">
+    <div class="main-overlay"></div>
+    <div class="main-register-holder">
+        <div class="main-register fl-wrap">
+            <div data-dismiss="modal" aria-label="Close" class="close-reg">
+                <i class="fa fa-times"></i>
+            </div>
+            <h3>Welcome to <span>Dari<strong>.Tn</strong></span></h3>
+            <div class="soc-log fl-wrap">
+                <p>Login</p>
+                <a  class="facebook-log" (click)="signInWithFB()"><i class="fa fa-facebook-official"></i>Log in with Facebook</a>
+                <a class="twitter-log" (click)="signInWithGoogle()"><i class="fa fa-gmail-official"></i> Log in with Gmail</a>
+            </div>
+            <div class="log-separator fl-wrap"><span>Or</span></div>
+            <div id="tabs-container">
+                <ul class="tabs-menu">
+                    <li id="login-li" class="current">
+                        <a style="cursor: pointer;" (click)="showLoginForm()">Login</a>
+                    </li>
+
+                    <li id="register-li">
+                        <a style="cursor: pointer;" (click)="showRegisterForm()">Register</a>
+                    </li>
+                </ul>
+                <div class="tab">
+                    <div id="tab-1" class="tab-contents">
+                        <div class="custom-form">
+                            <form #loginform="ngForm" (ngSubmit)="loginUser()" name="registerform">
+                                <label>Username  * </label>
+                                <input name="username" type="text" onClick="this.select()" value="" [(ngModel)]="user.username" >
+                                <label>Password * </label>
+                                <input name="password" type="password" onClick="this.select()" value="" [(ngModel)]="user.password">
+                                <button type="submit" class="log-submit-btn"><span>Log In</span></button>
+                                <div class="clearfix"></div>
+                                <div class="filter-tags">
+                                    <input id="check-a" type="checkbox" name="check">
+                                    <label for="check-a">Remember me</label>
+                                </div>
+                            </form>
+                            <div class="lost_password">
+                                 <a routerLink="/reset">Lost Your Password?</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab">
+                        <div id="tab-2" class="tab-contents">
+                            <div class="custom-form">
+                                <form #registerform="ngForm" (ngSubmit)="registerUser()" method="post" name="registerform" class="main-register-form"
+                                    id="main-register-form2">
+                                    <label>First Name * </label>
+                                    <input name="name" type="text" onClick="this.select()" value="" [(ngModel)]="user.nom">
+                                    <label>Second Name *</label>
+                                    <input name="name2" type="text" onClick="this.select()" value="" [(ngModel)]="user.prenom">
+                                    <label>Email Address *</label>
+                                    <input name="email" type="text" onClick="this.select()" value="" [(ngModel)]="user.email">
+                                    <label>Username *</label>
+                                    <input name="username" type="text" onClick="this.select()" value="" [(ngModel)]="user.username">
+                                    <label>Address *</label>
+                                    <input name="address" type="text" onClick="this.select()" value="" [(ngModel)]="user.address">
+                                    <label>Password *</label>
+                                    <input name="password" type="password" onClick="this.select()" value=""[(ngModel)]="user.password">
+
+                                    <label>Phone number * </label>
+                                    <input name="tel" type="text" onClick="this.select()" value="" [(ngModel)]="user.tel">
+                                        
+ <!--                                    <label>Role * </label>
+                                    <input name="role" type="text" onClick="this.select()" value="" > -->
+
+                                    <button type="submit" class="log-submit-btn"><span>Register</span></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

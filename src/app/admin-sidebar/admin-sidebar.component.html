@@ -5,16 +5,20 @@
             <img src="assets/front-assets/images/testimonials/ts-1.jpg" alt="avatar" class="img-fluid profile-img">
         </div>
         <div class="active-user">
-            <h2>Mary Smith</h2>
+            <h2>{{currentUser.username}}</h2>
         </div>
         <div class="detail clearfix">
             <ul class="mb-0">
                 <li> 
-                    <a routerLink="/admin">
+                    <a routerLink="/admin/users">
                         <i class="fa fa-map-marker"></i> Dashboard
                     </a>
                 </li>
-
+                <li>
+                    <a routerLink="/admin/annonces">
+                        <i class="fa fa-list" aria-hidden="true"></i>Users
+                    </a>
+                </li>
                 <li>
                     <a routerLink="/admin/annonces">
                         <i class="fa fa-list" aria-hidden="true"></i>Annonces

@@ -17,17 +17,20 @@ import { Role } from '../entity/role';
 })
 export class AdminUsersComponent implements OnInit {
   public users: User[];
-  public editUser: User;
-  public deleteUser: User;
-  public lockUser: User;
+  public editUser?: User;
+  public deleteUser?: User;
+  public lockUser?: User;
   roleType = Role;
-  lstRoles:Role[];
+  lstRoles: Role[];
 
-selectedItems:any;
+  selectedItems: any;
 
   alert: boolean = false
 
-  constructor(public userservice: UserService, private httpClient: HttpClient,private token: TokenStorageService) { }
+  constructor(public userservice: UserService, private httpClient: HttpClient, private token: TokenStorageService) {
+    this.users = [];
+    this.lstRoles=[]
+  }
   currentUser: any;
 
 
@@ -124,13 +127,13 @@ selectedItems:any;
         result.push(user);
       }
     }
-    this.users=result;
-    if(result.length ===0 || !key){
+    this.users = result;
+    if (result.length === 0 || !key) {
       this.getAllUsers();
     }
   }
 
-  public onOpenModal(user: User, mode: string): void {
+  public onOpenModal(mode: string,user?: User ): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
@@ -155,13 +158,13 @@ selectedItems:any;
     button.click();
   }
 
-  getRoleName(e:any,name:any){
+  getRoleName(e: any, name: any) {
 
-    if(!e.target.checkbox){
-      console.log(name+ ' checked');
+    if (!e.target.checkbox) {
+      console.log(name + ' checked');
       this.selectedItems.push(name);
-    }else{
-      console.log(name+ ' not checked');
+    } else {
+      console.log(name + ' not checked');
       //this.selectedItems=this.selectedItems.filter(m=>m!=name);
       this.selectedItems.push(name);
 

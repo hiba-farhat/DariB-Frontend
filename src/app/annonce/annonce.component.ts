@@ -1,7 +1,7 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AnnonceService } from '../services/annonce.service';
-import { Annonce } from '../models/annonce.model';
+import { AnnonceService } from '../service/annonce.service';
+import { Annonce } from '../entity/annonce.model';
 
 @Component({
   selector: 'app-annonce',

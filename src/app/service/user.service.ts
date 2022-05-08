@@ -15,10 +15,10 @@ const httpOptions = {
 
 
 export class UserService {
-  token: string
-  public loggedUser: string;
+  token: string =""
+  public loggedUser: string="";
   public isloggedIn: Boolean = false;
-  public roles: string[];
+  public roles: string[]=[];
  readonly API_URL = 'http://localhost:8081/DariTn/user';
   constructor(private httpClient: HttpClient) { }
 

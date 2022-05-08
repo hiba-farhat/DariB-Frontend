@@ -10,12 +10,14 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-  public aFormGroup: FormGroup;
+  public aFormGroup?: FormGroup;
   msg = '';
   form: any = {};
   email: string;
   constructor(private userservice: UserService, private formBuilder: FormBuilder,
-  private toastr:ToastrService ) { }
+  private toastr:ToastrService ) {
+    this.email = "";
+   }
 
   ngOnInit(): void {
     this.aFormGroup = this.formBuilder.group({

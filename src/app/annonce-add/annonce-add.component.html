@@ -1,0 +1,300 @@
+<div id="wrapper">
+    <app-header></app-header>
+
+
+
+    <div class="clearfix"></div>
+
+    <section class="single-proper blog details">
+        <div class="container">
+            <div style="    background: #fff none repeat scroll 0 0;margin-bottom: 30px;
+            padding: 30px;">
+                <h3 style="border-bottom: 1px solid #ddd;
+                margin-bottom: 40px;
+                padding-bottom: 25px;
+                color: #FF385C;
+                text-transform: capitalize;">Ajouter une annonce</h3>
+                <form name="createForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="createForm">
+
+                    <div id="firstPart">
+                        <div style="padding: 10px 50px;">
+                            <p>à propos</p>
+                            <div class="row">
+                                <div class="col-2">
+                                    <label for="idOfferType">Offre Type</label>
+                                </div>
+                                <div class="col-7">
+                                    <label for="titre">titre</label>
+                                </div>
+
+                                <div class="col-3">
+                                    <label for="idTypeProp">type du bien</label>
+                                </div>
+
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <select class="form-control" id="idOfferType" formControlName="offerType">
+                                            <option value="vendre">vendre</option>
+                                            <option value="louer">louer</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-7">
+                                    <input style="border: 1px solid #ddd;
+                                            height: 37px;
+                                            padding: 10px;
+                                            width: 100%;" type="text" name="title" id="titre" formControlName="titre"
+                                        placeholder="titre">
+                                </div>
+
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <select class="form-control" id="idTypeProp" formControlName="typeProp">
+                                            <option>villa</option>
+                                            <option>apartement</option>
+                                            <option>studio</option>
+                                            <option>maison</option>
+                                            <option>office</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div style="padding: 10px 50px;">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label for="description">Description</label>
+                                </div>
+                                <div class="col-12">
+                                    <textarea style="border: 1px solid #ddd;
+                                height: 180px;
+                                padding: 10px;
+                                width: 100%;" id="description" name="description"
+                                        placeholder="Describe about your property"
+                                        formControlName="description"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div style="padding: 10px 50px;">
+                            <div class="row">
+                                <div class="col-3">
+                                    <label for="surface">Surface</label>
+                                </div>
+                                <div class="col-3">
+                                    <label for="prix">prix</label>
+                                </div>
+                                <div class="col-3">
+                                    <label for="age">Age</label>
+                                </div>
+                                <div class="col-3">
+                                    <label for="yearBuilt">Date de construction</label>
+                                </div>
+
+
+                                <div class="col-3">
+                                    <input style="border: 1px solid #ddd;
+                                            height: 37px;
+                                            padding: 10px;
+                                            width: 100%;" type="number" name="surface" id="surface"
+                                        formControlName="surface" placeholder="surface">
+                                </div>
+
+                                <div class="col-3">
+                                    <input style="border: 1px solid #ddd;
+                                            height: 37px;
+                                            padding: 10px;
+                                            width: 100%;" type="number" name="price" id="price" formControlName="price"
+                                        placeholder="Price">
+                                </div>
+
+                                <div class="col-3">
+                                    <input style="border: 1px solid #ddd;
+                                    height: 37px;
+                                    padding: 10px;
+                                    width: 100%;" type="number" formControlName="age" name="age" id="age"
+                                        placeholder="age">
+                                </div>
+                                <div class="col-3">
+                                    <input style="border: 1px solid #ddd;
+                                            height: 37px;
+                                            padding: 10px;
+                                            width: 100%;" type="date" name="YearBuilt" id="YearBuilt"
+                                        formControlName="yearBuilt" placeholder="date de construction ">
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 20px 50px;">
+                            <div class="row">
+                                <div class="col-6">
+
+                                </div>
+                                <div style="text-align: right;" class="col-6">
+                                    <button (click)="toSecondPart()" type="button"
+                                        class="Darybtn Darybtn-primary">Suivant</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div style="display: none;" id="secondPart">
+                        <div style="padding: 10px 50px;">
+                            <p>Details</p>
+                            <div class="row">
+                                <div class="col-3">
+                                    <label>Nombre des chambres </label>
+                                </div>
+
+                                <div class="col-3">
+                                    <label>Nombres des chambres à coucher</label>
+                                </div>
+
+                                <div class="col-3">
+                                    <label>Nombres des salles de bain </label>
+                                </div>
+
+
+                                <div class="col-2">
+                                    <label>Garage </label>
+                                </div>
+
+                                <div class="col-1">
+                                    <!--Parking-->
+                                </div>
+
+
+                                <div class="col-3">
+                                    <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="number" name="bedNum" id="bedNum" formControlName="bedNum"
+                                        placeholder="Nombre de chambre à coucher">
+                                </div>
+                                <div class="col-3">
+                                    <input style="border: 1px solid #ddd;
+                                            height: 37px;
+                                            padding: 10px;
+                                            width: 100%;" type="number" name="roomsNum" id="roomsNum"
+                                        formControlName="roomsNum" placeholder="num de chambre">
+                                </div>
+                                <div class="col-3">
+                                    <input style="border: 1px solid #ddd;
+                                            height: 37px;
+                                            padding: 10px;
+                                            width: 100%;" type="number" name="bathNum" id="bathNum"
+                                        formControlName="bathNum">
+                                </div>
+                                <div class="col-2">
+                                    <input style="border: 1px solid #ddd;
+                                            height: 37px;
+                                            padding: 10px;
+                                            width: 100%;" type="number" name="garage" id="garage"
+                                        formControlName="garagenum" placeholder="garage">
+                                </div>
+                                <div class="col-1">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" formControlName="parking" class="custom-control-input"
+                                            id="ParkingCheck">
+                                        <label class="custom-control-label" for="ParkingCheck">Parking</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="position: relative;" class="row">
+                                <input class="localisation" type="text" name="localisation" id="annonce_localisation"
+                                    formControlName="localisation" placeholder="localisation">
+                                <div class="map-container">
+                                    <div class="map-frame">
+                                        <div id="map"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 20px 50px;">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button (click)="toFirstPart()" type="button"
+                                        class="Darybtn Darybtn-light">Precedent</button>
+                                </div>
+                                <div style="text-align: right;" class="col-6">
+                                    <button (click)="toLastPart()" type="button"
+                                        class="Darybtn Darybtn-primary">Suivant</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div style="display: none;" id="lastPart">
+                        <div style="padding: 20px 50px;">
+                            <p>Veuillez Ajouter des images </p>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="custom-file">
+                                        <input (change)="onImageUpload($event)" type="file" formControlName="image" id="idImage">
+                                        <label class="custom-file-label"  for="idImage">
+                                            ajouter image
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div style="padding: 20px 50px;">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" (change)="onImagePlanUpload($event)" id="idImagePlan"
+                                            formControlName="imageplan" >
+                                        <label class="custom-file-label" for="idImagePlan">ajouter image du plan</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div style="padding: 20px 50px;">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="idVideo" (change)="onVideoUpload($event)"
+                                            formControlName="video">
+                                        <label class="custom-file-label" for="idVideo">ajouter un
+                                            video</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div style="padding: 20px 50px;">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button (click)="toSecondPart()" type="button"
+                                        class="Darybtn Darybtn-light">Precedent</button>
+                                </div>
+                                <div style="text-align: right;" class="col-6">
+                                    <button type="submit" class="Darybtn Darybtn-primary">Ajouter</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+</div>
+<app-footer></app-footer>

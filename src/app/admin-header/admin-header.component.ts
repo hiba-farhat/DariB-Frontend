@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-admin-header',
@@ -6,12 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-header.component.css']
 })
 export class AdminHeaderComponent implements OnInit {
+  currentUser: any;
 
-  constructor() {
-    document.getElementById("app-body")!.className = "maxw1600 m0a dashboard-bd";
+  constructor(private userService: UserService) {
+    document.getElementById("app-body")!.className = "maxw1600 m0a dashboard-bd"
   }
 
   ngOnInit(): void {
+
+    this.currentUser =localStorage.getItem('loggedUser');
+    
   }
+
+ 
 
 }

@@ -78,7 +78,7 @@
 
                     <div class="col-lg-9 col-md-12 col-xs-12 pl-0 user-dash2">
 
-                        <!--                         <a class="nav-link" (click)="onOpenModal(null,'add')">Add User </a>
+                        <!--                         <a class="nav-link" (click)="onOpenModal('add')">Add User </a>
  -->
                         <aside class="col-lg-3 col-md-12 " style="position:relative; left:780px; top:50px;">
                             <div class="widget">
@@ -93,7 +93,7 @@
                             </div>
                         </aside>
                         <div>
-                            <button type="button" (click)="onOpenModal(null,'add')"
+                            <button type="button" (click)="onOpenModal('add')"
                                 class="btn btn-outline-info btn-lg btn-lg btn-circle ml-2"><i class="fa fa-plus"></i>
                             </button>
                             <br>
@@ -177,13 +177,13 @@
                         </select>
                       </td> -->
                                                             <td>
-                                                                <button type="button" (click)="onOpenModal(u,'lock')"
+                                                                <button type="button" (click)="onOpenModal('lock',u)"
                                                                     class="btn btn-outline-info btn-circle btn-lg btn-circle"><i
                                                                         class="fa fa-key"></i> </button>
-                                                                <button type="button" (click)="onOpenModal(u,'delete')"
+                                                                <button type="button" (click)="onOpenModal('delete',u)"
                                                                     class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
                                                                         class="fa fa-trash"></i> </button>
-                                                                <button type="button" (click)="onOpenModal(u,'edit')"
+                                                                <button type="button" (click)="onOpenModal('edit',u)"
                                                                     class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
                                                                         class="fa fa-edit"></i> </button>
 
@@ -251,21 +251,26 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="role">Role </label>
-                                                  
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                         <!--                         <div *ngFor="let role of lstRoles">
                                                     <input ngModel name="role" type="checkbox" [value]="role.name"
                                                         (change)="getRoleName($event,role.name)" >{{role.name}}
 
                                                 </div> -->
-<!-- 
+                        <!-- 
                                                 <div *ngFor="let item of checkboxesDataList">
                                                     <input ngModel type="checkbox" name="role" id="role" [value]=fetchCheckedIDs() (change)="changeSelection()">{{item.label}}
                                                   </div>
  -->
 
 
-                                                <!--   <select class="form-select" name="role" ngModel name="role">
+                        <!--   <select class="form-select" name="role" ngModel name="role">
                                                     <option value="" selected disabled>Please select a status </option>
                                                     <option value="[vendeur]"> vendeur</option>
                                                     <option value=" [ " admin "] "> admin </option>
@@ -285,7 +290,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
 
                         <!-- Edit Modal -->
                         <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog"

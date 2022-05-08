@@ -1,0 +1,23 @@
+.comment_user{
+    color: #FF385C;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.yellow-stars{
+    color: #ffc107;
+}
+
+.review-stars{
+    background: none;
+    border: none;
+    
+}
+
+.center-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}

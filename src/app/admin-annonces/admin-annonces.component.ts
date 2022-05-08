@@ -1,11 +1,11 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Annonce } from '../models/annonce.model';
-import { BackendResponse } from '../models/backend-response';
-import { SignalerAnnonceAdmin } from '../models/SignalerAnnonceAdmin';
-import { SignalerAnnonceService } from '../services/signaler-annonce.service';
-import {  } from '../services/signaler-annonce.service';
-import { AnnonceService } from '../services/annonce.service';
+import { Annonce } from '../entity/annonce.model';
+import { BackendResponse } from '../entity/backend-response';
+import { SignalerAnnonceAdmin } from '../entity/SignalerAnnonceAdmin';
+import { SignalerAnnonceService } from '../service/signaler-annonce.service';
+import {  } from '../service/signaler-annonce.service';
+import { AnnonceService } from '../service/annonce.service';
 
 
 @Component({

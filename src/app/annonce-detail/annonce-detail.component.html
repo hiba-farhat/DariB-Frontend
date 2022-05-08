@@ -1,0 +1,398 @@
+<div id="wrapper">
+    <app-header></app-header>
+
+
+
+    <div class="clearfix"></div>
+
+    <section class="single-proper blog details">
+        <div class="container">
+            <div class="row">
+                <div class="col-8 blog-pots">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section style="padding-bottom: 20px;" class="headings-2 pt-0">
+                                <div style="display: flex;justify-content: space-between;">
+
+
+
+                                    <div class="detail-wrapper-body">
+                                        <div class="listing-title-bar">
+                                            <h3>{{annonce.titre}}<span style="font-size: 14px;
+                                                background: #FF385C;
+                                                color: #fff;
+                                                border: 1px solid #fff;
+                                                padding: 5px 15px;
+                                                border-radius: 50px;
+                                                top: -3px;
+                                                margin-left: 0.5rem;
+                                                position: relative;" class="mrg-l-5 category-tag">à
+                                                    {{annonce.offerType}}</span></h3>
+                                            <div class="mt-0">
+                                                <a style="    text-decoration: none;
+                                                color: #666;" class="listing-address">
+                                                    <i
+                                                        class="fa fa-map-marker pr-2 ti-location-pin mrg-r-5"></i>{{annonce.localisation}}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div>
+                                        <div class="detail-wrapper-body">
+                                            <div class="listing-title-bar">
+                                                <h4 style="font-size: 24px;
+                                                font-weight: 600;
+                                                color: #FF385C;
+                                                text-transform: capitalize !important;">{{annonce.price}}dt</h4>
+                                                <div class="mt-0">
+                                                    <a class="listing-address">
+                                                        <p style="font-size: 17px;
+                                                        text-decoration: none;
+                                                        color: #333;">{{annonce.surface}}m²</p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- main slider carousel items -->
+                            <div id="listingDetailsSlider" class="carousel listing-details-sliders slide mb-30">
+                                <div
+                                    style="display: flex;justify-content: space-between;align-items: center;align-content: center;">
+                                    <h5 class="mb-4">Gallerie</h5>
+                                    <div>
+                                        <a style="width: 40px;" class="Darybtn Darybtn-primary mr-1"
+                                            [routerLink]="[ '/annonces/edit', idAnnonce]">
+                                            <i style="color: white;" class="fa fa-edit"></i>
+                                        </a>
+                                        <button (click)="deleteAnnonce()" style="width: 40px ;"
+                                            class="Darybtn Darybtn-primary">
+                                            <i style="color: white;" class="fa fa-trash"></i>
+                                        </button>
+                                        <button *ngIf="isReported === false" class="Darybtn Darybtn-light"
+                                            data-toggle="modal" data-target="#signalModal">
+                                            <i class="fa fa-ban"></i>
+                                            Signaler
+                                        </button>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="carousel-inner">
+                                    <div class="active item carousel-item" data-slide-number="0">
+                                        <img style="width: 100%;" src="{{ annonce.image }}" class="img-fluid"
+                                            alt="slider-listing">
+                                    </div>
+                                    <div class="item carousel-item" data-slide-number="1">
+                                        <img style="width: 100%;"
+                                            src="assets/front-assets/images/single-property/s-2.jpg" class="img-fluid"
+                                            alt="slider-listing">
+                                    </div>
+                                    <div class="item carousel-item" data-slide-number="2">
+                                        <img style="width: 100%;"
+                                            src="assets/front-assets/images/single-property/s-3.jpg" class="img-fluid"
+                                            alt="slider-listing">
+                                    </div>
+                                    <div class="item carousel-item" data-slide-number="4">
+                                        <img style="width: 100%;"
+                                            src="assets/front-assets/images/single-property/s-4.jpg" class="img-fluid"
+                                            alt="slider-listing">
+                                    </div>
+                                    <div class="item carousel-item" data-slide-number="5">
+                                        <img style="width: 100%;"
+                                            src="assets/front-assets/images/single-property/s-5.jpg" class="img-fluid"
+                                            alt="slider-listing">
+                                    </div>
+
+                                    <a class="carousel-control left" href="#listingDetailsSlider" data-slide="prev">
+                                        <i style="color: white;" class="fa fa-angle-left"></i></a>
+                                    <a class="carousel-control right" href="#listingDetailsSlider" data-slide="next">
+                                        <i style="color: white;" class="fa fa-angle-right"></i></a>
+
+                                </div>
+                                <!-- main slider carousel nav controls -->
+                                <ul class="carousel-indicators smail-listing list-inline">
+                                    <li class="list-inline-item active">
+                                        <a id="carousel-selector-0" class="selected" data-slide-to="0"
+                                            data-target="#listingDetailsSlider">
+                                            <img src="assets/front-assets/images/single-property/s-1.jpg"
+                                                class="img-fluid" alt="listing-small">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a id="carousel-selector-1" data-slide-to="1"
+                                            data-target="#listingDetailsSlider">
+                                            <img src="assets/front-assets/images/single-property/s-2.jpg"
+                                                class="img-fluid" alt="listing-small">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a id="carousel-selector-2" data-slide-to="2"
+                                            data-target="#listingDetailsSlider">
+                                            <img src="assets/front-assets/images/single-property/s-3.jpg"
+                                                class="img-fluid" alt="listing-small">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a id="carousel-selector-3" data-slide-to="3"
+                                            data-target="#listingDetailsSlider">
+                                            <img src="assets/front-assets/images/single-property/s-4.jpg"
+                                                class="img-fluid" alt="listing-small">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a id="carousel-selector-4" data-slide-to="4"
+                                            data-target="#listingDetailsSlider">
+                                            <img src="assets/front-assets/images/single-property/s-5.jpg"
+                                                class="img-fluid" alt="listing-small">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div>
+
+
+                                </div>
+                                <!-- main slider carousel items -->
+                            </div>
+                            <div class="blog-info details mb-30">
+                                <h5 class="mb-4">Description</h5>
+                                {{annonce.description}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single homes-content details mb-30">
+                        <!-- title -->
+                        <h5 class="mb-4">Property Details</h5>
+                        <ul class="homes-list clearfix">
+                            <li>
+                                <span class="font-weight-bold mr-1">Property ID:</span>
+                                <span class="det">{{annonce.idAnnonce}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Property Type:</span>
+                                <span class="det">{{annonce.typeProp}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Property status:</span>
+                                <span class="det">à {{annonce.offerType}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Property Price:</span>
+                                <span class="det">{{annonce.price}}dt</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Rooms:</span>
+                                <span class="det">{{annonce.roomsNum}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Bedrooms:</span>
+                                <span class="det">{{annonce.bedNum}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Bath:</span>
+                                <span class="det">{{annonce.bathNum}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Garages:</span>
+                                <span class="det">{{annonce.garagenum}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Year Built:</span>
+                                <span class="det">{{annonce.yearBuilt}}</span>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="floor-plan property wprt-image-video w50 pro">
+                        <h5>Floor Plans</h5>
+                        <!-- <img style="width: 100%;" alt="image" src="assets/front-assets/images/bg/floor-plan-1.png"> -->
+                        <img style="width: 100%;" alt="image" src="{{ annonce.imageplan }}">
+
+                    </div>
+
+                    <div class="property wprt-image-video w50 pro">
+                        <h5>Property Video</h5>
+                        <video style="width: 100%;" *ngIf="annonce.video!.includes('mp4')" controls="true">
+                            <source type="video/webm" src="{{ annonce.video }}" />
+                            <source type="video/mp4" src="{{ annonce.video }}" />
+                        </video>
+
+                        <div class="iq-waves">
+                            <div class="waves wave-1"></div>
+                            <div class="waves wave-2"></div>
+                            <div class="waves wave-3"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-4">
+                    <section class="reviews comments">
+                        <h3 class="mb-5">{{ commentaires.length }} Commentaires</h3>
+                        <div *ngFor="let commentaire of commentaires; let i = index" class="row mb-5">
+                            <div class="col-3">
+                                <img src="assets/front-assets/images/testimonials/ts-5.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="col-9">
+                                <div style="display: flex;justify-content: space-between;">
+                                    <div>
+                                        <h5 class="comment_user">Syrine bh</h5>
+                                        <p style="margin: 0;">{{ commentaire.createdAt|date }}</p>
+                                    </div>
+
+                                    <div class="rating-box">
+                                        <div class="detail-list-rating mr-0 yellow-stars">
+                                            <i *ngFor="let rate of [].constructor(commentaire.rate);"
+                                                class="fa fa-star"></i>
+                                            <i *ngFor="let rate of [].constructor(5 - commentaire.rate!);"
+                                                class="fa fa-star-o"></i>
+                                        </div>
+                                        <div style="float: right;">
+                                            <button (click)="prepareUpdateCommentaire(commentaire,i)"
+                                                style="width: 25px;height: 25px;padding: 0;"
+                                                class="Darybtn Darybtn-light mr-1"> <i class="fa fa-edit"></i> </button>
+                                            <button (click)="deleteComment(commentaire.idComment!)"
+                                                style="width: 25px;height: 25px;padding: 0;"
+                                                class="Darybtn Darybtn-primary"> <i class="fa fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <p>
+                                        {{ commentaire.commentContent }}
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <section class="single reviews leve-comments details">
+                        <div id="add-review" class="add-review-box">
+
+                            <h3 class="listing-desc-headline margin-bottom-20 mb-4">Ajouter un commentaire</h3>
+                            <span class="leave-rating-title">donner un rating</span>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+
+                                    <div class="clearfix"></div>
+
+                                    <div id="stars-container" class="stars-container" style="width: 155px;">
+                                        <button (click)="saveRating(1)" (mouseenter)="fillStar(1)"
+                                            (mouseleave)="unfillStar(1)" id="addStar-1"
+                                            class="review-stars yellow-stars"><i class="fa fa-star-o"></i></button>
+                                        <button (click)="saveRating(2)" (mouseenter)="fillStar(2)"
+                                            (mouseleave)="unfillStar(2)" id="addStar-2"
+                                            class="review-stars yellow-stars"><i class="fa fa-star-o"></i></button>
+                                        <button (click)="saveRating(3)" (mouseenter)="fillStar(3)"
+                                            (mouseleave)="unfillStar(3)" id="addStar-3"
+                                            class="review-stars yellow-stars"><i class="fa fa-star-o"></i></button>
+                                        <button (click)="saveRating(4)" (mouseenter)="fillStar(4)"
+                                            (mouseleave)="unfillStar(4)" id="addStar-4"
+                                            class="review-stars yellow-stars"><i class="fa fa-star-o"></i></button>
+                                        <button (click)="saveRating(5)" (mouseenter)="fillStar(5)"
+                                            (mouseleave)="unfillStar(5)" id="addStar-5"
+                                            class="review-stars yellow-stars"><i class="fa fa-star-o"></i></button>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 data">
+                                    <form (submit)="saveCommentaire()">
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="commentTextarea" rows="8"
+                                                placeholder="Aa" required=""></textarea>
+                                        </div>
+
+
+
+                                        <button *ngIf="modify===false; else modifBtn" type="submit"
+                                            class="Darybtn Darybtn-primary mt-2">
+                                            ajouter commentaire
+                                        </button>
+
+                                        <ng-template #modifBtn>
+                                            <button (click)="updateCommentaire()" type="button"
+                                                class="Darybtn Darybtn-primary  mt-2">
+                                                modifier commentaire
+                                            </button>
+
+                                            <button (click)="cancelUpdate()" type="button"
+                                                class="Darybtn Darybtn-light mt-2">
+                                                Annuler
+                                            </button>
+                                        </ng-template>
+
+
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <div id="signalModal" class="login-and-register-form modal">
+        <div class="main-overlay"></div>
+        <div class="main-register-holder">
+            <div class="main-register fl-wrap">
+                <div data-dismiss="modal" aria-label="Close" class="close-reg">
+                    <i class="fa fa-times"></i>
+                </div>
+                <h3>Welcome to <span>DARI<strong>B</strong></span></h3>
+
+                <div id="tabs-container">
+
+                    <label> Pourquoi vous voulez signaler cette annonce?</label>
+                    <div class="center-div">
+                        <div style="width: 77%;">
+                            <button style="margin-bottom: 7px;" type="button"
+                                (click)="AjoutSignal('Nudité ou activité sexuelle');"
+                                class="Darybtn Darybtn-light">Nudité ou activité sexuelle</button><br>
+                            <button style="margin-bottom: 7px;" type="button"
+                                (click)="AjoutSignal('Discours ou symboles de haine');"
+                                class="Darybtn Darybtn-light">Discours ou symboles de haine</button>
+                            <button style="margin-bottom: 7px;" type="button"
+                                (click)="AjoutSignal('Violence ou organisations dangereuses');"
+                                class="Darybtn Darybtn-light">Violence ou organisations dangereuses</button>
+                            <button style="margin-bottom: 7px;" type="button"
+                                (click)="AjoutSignal('Vente de marchandises illégales ou réglementées');"
+                                class="Darybtn Darybtn-light">Vente de marchandises illégales ou réglementées</button>
+                            <button style="margin-bottom: 7px;" type="button"
+                                (click)="AjoutSignal('Intimidation ou harcèlement');"
+                                class="Darybtn Darybtn-light">Intimidation ou harcèlement</button>
+                            <button style="margin-bottom: 7px;" type="button"
+                                (click)="AjoutSignal('Violation de la propriété intellectuelle');"
+                                class="Darybtn Darybtn-light">Violation de la propriété intellectuelle</button>
+                            <button style="margin-bottom: 7px;" type="button"
+                                (click)="AjoutSignal('Suicide ou automutilation');"
+                                class="Darybtn Darybtn-light">Suicide ou automutilation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+
+
+
+</div>
