@@ -5,7 +5,7 @@ export class Annonce
 {
   idAnnonce?: number;
   IdSignaler?: number;
-
+   
   titre?: string;
   surface? : number;
   yearBuilt? :Date ;
