@@ -10,9 +10,9 @@ import { PaymentService } from 'src/app/service/payment.service';
 })
 export class ModeleComponent implements OnInit {
 
-  @Input() id;
-  @Input() type;
-  @Input() prix;
+  @Input() id:any;
+  @Input() type:any;
+  @Input() prix:any;
   constructor(
     public activeModal: NgbActiveModal,
     private paymentService: PaymentService,

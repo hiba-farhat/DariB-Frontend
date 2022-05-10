@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="html 5 template">
+  <meta name="author" content="">
+  <title>Find Houses - HTML5 Template</title>
+  <!-- FAVICON -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i%7CMontserrat:600,800,%20700"
+    rel="stylesheet">
+
+</head>
+
+<body class="th-18">
+  <div id="wrapper" class="int_main_wraapper">
+    <div class="dash-content-wrap">
+      <app-header></app-header>
+    </div>
+    <div class="clearfix">
+    </div>
+    <section class="header-image home-18 d-flex align-items-center">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center">
+
+
+          <h3 style="color: white;">Calculate the monthly repayments of your mortgage loan
+          </h3>
+          <h4 style="color: white;">
+            DARI.TN PROVIDES YOU WITH ITS HOME LOAN SIMULATOR TO HELP YOU IN YOUR DECISION.
+          </h4>
+
+          <div class="col-lg-6 col-md-6 main-search-field-2 mt-5">
+            <div class="range-slider ">
+
+              <div class="row datainput">
+                <div class="col-xs-12">
+                  <label for="montant">
+                    <h4 style="color: white;">Amount of loan </h4>
+                  </label>
+                  <div class="form-group pull-right">
+                    <div class="input-group">
+                      <input type="text" name="montant" id="montant" class="form-control" [(ngModel)]="credit.montant">
+                      <div class="input-group-addon eldevise" style="color: white;">TND</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ngx-slider [(value)]="value" [options]="options" [(ngModel)]="credit.montant"></ngx-slider>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="period" class="form-label" style="color: white;">Loan term</label>
+            <input type="number" class="form-control" placeholder="0" id="period" [(ngModel)]="credit.duree">
+          </div>
+          <div class="col-md-6">
+            <label for="montant" class="form-label" style="color: white;">Salary</label>
+            <input type="number" class="form-control" placeholder="0.000" id="salaire" [(ngModel)]="credit.salaire">
+          </div>
+          <br>
+          <div class="col-md-6">
+            <label for="credit.banque.idBanque" class="form-label" style="color: white;">Bank</label>
+      
+            <p   type="text" class="form-select" id="credit.banque.idBanque" [(ngModel)]="credit.banque" >
+              <button  (click)="affecter(c.idBanque)"  value="credit.banque" *ngFor="let c of ListBanks">{{c.nombanque}}</button>            
+            </p>
+          </div>
+          
+
+          <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content" id="result">
+                <div class="modal-header">
+                  <h4 class="modal-title">SUMMARY</h4>
+                </div>
+                <div class="modal-body" id="result">
+                  <h6>Amount of loan : {{credit.montant}} </h6>
+                  <h6>Loan term: {{credit.duree}}</h6>
+                  <h6>Monthly instalment : {{ credit.montant / credit.duree || ''}} </h6>
+                  <small>The result of this simulation is non-contractual and is strictly informative. It does not take into account the cost of insurance required for credit, regulatory VAT and administrative fees.</small>
+                </div>
+                <div class="modal-footer">
+                  <div class="col-md-4 text-right">
+                    <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+                  </div>
+                  <button type="button" class="btn btn-danger" (click)="closePopup()">
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn btn-success" (click)="openPopup()"  (click)="simulationCredit(idbanque)"
+            style="align-items: center; justify-content: center;">Start
+            </button>
+        </div>
+
+      </div>
+    </section>
+    <a data-scroll href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+    <app-footer></app-footer>
+    <!-- ARCHIVES JS -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/tether.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mmenu.min.js"></script>
+    <script src="js/mmenu.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/aos2.js"></script>
+    <script src="js/nice-select.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/fitvids.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/typed.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/smooth-scroll.min.js"></script>
+    <script src="js/lightcase.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/ajaxchimp.min.js"></script>
+    <script src="js/newsletter.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/forms-2.js"></script>
+    <script src="js/color-switcher.js"></script>
+    <script>
+      $(window).on('scroll load', function () {
+        $("#header.cloned #logo img").attr("src", $('#header #logo img').attr('data-sticky-logo'));
+      });
+
+    </script>
+
+    <script>
+      $('.slick-lancers').slick({
+        infinite: false,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: true,
+        adaptiveHeight: true,
+        responsive: [{
+          breakpoint: 1292,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            dots: true,
+            arrows: false
+          }
+        }, {
+          breakpoint: 993,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            dots: true,
+            arrows: false
+          }
+        }, {
+          breakpoint: 769,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: true,
+            arrows: false
+          }
+        }]
+      });
+
+    </script>
+    <!-- Slider Revolution scripts -->
+    <script src="revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- MAIN JS -->
+    <script src="js/script.js"></script>
+
+  </div>
+</body>
+
+</html>

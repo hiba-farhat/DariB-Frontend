@@ -3,8 +3,7 @@
     <input class="form-control" type="text" formControlName="name" placeholder="Jane Doe">
     <ngx-stripe-card
       [options]="cardOptions"
-      [elementsOptions]="elementsOptions"
-    ></ngx-stripe-card>
+      [elementsOptions]="elementsOptions"></ngx-stripe-card>
     <button type="submit" class="btn btn-outline-success" [disabled]="!f.valid">
       CREATE TOKEN
     </button>

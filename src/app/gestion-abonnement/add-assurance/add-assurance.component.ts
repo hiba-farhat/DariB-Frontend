@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AssuranceService } from 'src/app/service/assurance.service';
 
@@ -13,7 +14,7 @@ export class AddAssuranceComponent implements OnInit {
   addform:FormGroup;
   ngDropdown = 1;
 
-  constructor(private fb:FormBuilder,private as:AssuranceService,private toastrService:ToastrService) {
+  constructor(private fb:FormBuilder,private as:AssuranceService,private toastrService:ToastrService,private router: Router) {
     this.addform=fb.group({
       dateDebutAssu: new FormControl('',Validators.required),
       nomAssu: new FormControl('',Validators.required),
@@ -32,6 +33,7 @@ export class AddAssuranceComponent implements OnInit {
     this.as.AddAssurance(assurance).subscribe((res)=>{
       console.log("test");
      this.toastrService.success("","Assurance ajouté");
+     this.router.navigate(['/list-assurance']);
       
     
     },

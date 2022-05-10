@@ -90,5 +90,3 @@ export class PayementComponent implements OnInit {
   }
 
 }
-
-

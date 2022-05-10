@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AbonnementService } from 'src/app/service/abonnement.service';
 
@@ -13,7 +14,7 @@ export class AddAbonnementComponent implements OnInit {
   addform:FormGroup;
   ngDropdown = 1;
   submitted = false;
-  constructor(private fb:FormBuilder,private ab:AbonnementService,private toastrService:ToastrService) {
+  constructor(private fb:FormBuilder,private ab:AbonnementService,private toastrService:ToastrService,private router: Router) {
     this.addform=fb.group({
       date_debut: new FormControl('',Validators.required),
       date_fin: new FormControl('',Validators.required),
@@ -31,6 +32,7 @@ export class AddAbonnementComponent implements OnInit {
     this.ab.AddAbonnement(abonnement).subscribe((res)=>{
       console.log("test");
      this.toastrService.success("","Abonnement ajouté");
+     this.router.navigate(['/list-abonnement']);
       
     
     },

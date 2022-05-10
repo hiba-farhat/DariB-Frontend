@@ -27,6 +27,14 @@ import { ModeleComponent } from './gestion-abonnement/modele/modele.component';
 import { AssuranceComponent } from './gestion-abonnement/assurance/assurance.component';
 import { AddAssuranceComponent } from './gestion-abonnement/add-assurance/add-assurance.component';
 import { AbonnementFrontComponent } from './gestion-abonnement/abonnement-front/abonnement-front.component';
+import { VisiteComponent } from './visite/visite.component';
+import { VisiteFrontComponent } from './visite-front/visite-front.component';
+import { CreditsimulationComponent } from './creditsimulation/creditsimulation.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
+import { AdminReclamationComponent } from './admin-reclamation/admin-reclamation.component';
+import { BanqueComponent } from './banque/banque.component';
+import { PdfComponent } from './pdf/pdf.component';
+import { AdminAddbankComponent } from './admin-addbank/admin-addbank.component';
 
 const routes: Routes = [
   { path: 'home' ,component: HomeComponent},
@@ -47,7 +55,18 @@ const routes: Routes = [
   {path: 'front', component:AbonnementFrontComponent  },
   { path: 'list-assurance' ,component:AssuranceComponent},
   { path: 'list-abonnement/:id' ,component:ListAbonnementComponent},
-
+  { path: 'annonces/add', component: AnnonceAddComponent },
+  { path: 'annonces/edit/:id', component: AnnonceEditComponent },
+  { path: 'annonces/delete/:id', component: AnnonceComponent },
+  { path: 'annonces/detail/:id', component: AnnonceDetailComponent },
+  { path: 'admin/visite' ,component: VisiteComponent},
+  { path: 'visite' ,component: VisiteFrontComponent},
+  { path: 'reclamations', component: ReclamationComponent },
+  { path: 'admin/reclamations', component: AdminReclamationComponent},
+  { path: 'banques', component: BanqueComponent},
+  {path :'simulateur', component: CreditsimulationComponent},
+  {path: 'pdf', component: PdfComponent},
+  {path:'admin/add-bank', component: AdminAddbankComponent}
 ];
 
 @NgModule({
@@ -73,6 +92,17 @@ export const routingComponents = [
   AnnonceEditComponent,
   AnnonceDetailComponent,
   VisiteComponent,
+  VisiteFrontComponent,
+  ReclamationComponent,
+  BanqueComponent,
+  CreditsimulationComponent,
+  PdfComponent,
+  
+  AdminComponent,
+  AdminAnnoncesComponent,
+  AdminReclamationComponent,
+  AdminAddbankComponent
+ 
   
   
 ];

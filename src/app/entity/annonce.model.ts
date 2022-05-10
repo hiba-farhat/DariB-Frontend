@@ -29,6 +29,9 @@ export class Annonce
   imageplan? : string;
   video? : string;
   image? : string;
+  Governorate?: String ;
+    Delegation?: String ;
+    taux_reduction?: number  ;
 
 
   
