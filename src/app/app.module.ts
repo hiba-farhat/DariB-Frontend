@@ -38,7 +38,7 @@ import { CodeActivationComponent } from './users/code-activation/code-activation
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 
 import { GoogleChartsModule } from 'angular-google-charts';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -56,7 +56,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
     ChatComponent,
     updatePasswordComponent,
     CodeActivationComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -72,11 +73,15 @@ import { GoogleChartsModule } from 'angular-google-charts';
     SocialLoginModule,
     MatInputModule,
     MatSlideToggleModule,
-    GoogleChartsModule
+    GoogleChartsModule,
+    NgxPaginationModule,
+    
+    
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [{
+  providers: [ 
+  {
     provide: 'SocialAuthServiceConfig',
     useValue: {
       autoLogin: false,
