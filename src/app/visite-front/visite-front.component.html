@@ -1,0 +1,319 @@
+<app-header></app-header>
+<link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i%7CMontserrat:600,800" rel="stylesheet">
+
+<body class="inner-pages hd-white">
+
+
+   
+    <!-- Header Container / End -->
+
+
+
+    <div id="wrapper">
+
+      <header id="header-container">
+        <!-- Header -->
+        <div id="header">
+          <div class="container container-header">
+            <!-- Left Side Content -->
+            <div class="left-side">
+              <!-- Logo -->
+              <div id="logo">
+                <a href="index-2.html"><img src="images/logo-red.svg" alt=""></a>
+              </div>
+              <!-- Mobile Navigation -->
+              <div class="mmenu-trigger">
+                <button class="hamburger hamburger--collapse" type="button">
+                  <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Header / End -->
+      </header>
+      <!-- Header Container / End -->
+      <section class="headings" style="height:300px;">
+        <div class="text-heading text-center">
+          <div class="container">
+            <h1>prendre un RDV </h1>
+            <h2><a href="/">Home </a>  </h2>
+            <a class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=p1kNNrSxZEM"
+              rel="nofollow" target="_blank">visitez la propriété </a>
+            <a class="btn btn-outline-light btn-lg m-2" target="_blank" role="button"
+              (click)="onOpenModal(null, 'add')">prendre un RDV</a>
+          </div>
+        </div>
+      </section>
+    </div>
+   
+    <!-- END SECTION HEADINGS -->
+
+
+    <div id="wrapper">
+
+
+      <!-- <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" (click)="onOpenModal(null, 'add')">prendre un RDV  <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>-->
+      <!--<form class="form-inline my-2 my-lg-0">
+        <input type="search" (ngModelChange)="searchRdv(key.value)" #key="ngModel" ngModel
+        name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search ..." required>
+      </form>-->
+    </div>
+    <!-- Background image -->
+
+
+
+
+
+    <div class="col-sm-9">
+
+      <aside class="col-lg-3 col-md-12 " style="position:relative; left:600px; top:50px;">
+        <div class="widget">
+          <div class="input-group ">
+            <div class="col-sm-3">
+              <!--<button type="button" (click)="onOpenModal(null, 'add') " class="btn btn-outline-dark ">add</button>-->
+            </div>
+
+
+            
+              <div class="input-group">
+                <input type="search" (ngModelChange)="searchRdv(key.value)" #key="ngModel" ngModel name="key"
+                id="searchName"class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+            <button class="btn btn-primary" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+            </span>
+            </div>
+            
+
+          </div>
+
+
+        </div>
+      </aside>
+    </div>
+
+
+
+    <br><br><br><br>
+    <div class="container bootstrap snippets bootdey" id="main-container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="main-box no-header clearfix">
+            <div class="main-box-body clearfix">
+              <div class="table-responsive">
+                <table class="table user-list">
+                  <thead>
+                    <tr>
+                      <th><span>Date RDV</span></th>
+                      <th class="text-center"><span>Durée</span></th>
+                      <th><span>Description</span></th>
+                      <th>&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let RendezVous of listrdv | paginate: { 
+                    itemsPerPage:3,
+                    currentPage: p
+                     }">
+                      <td>
+
+                        <span class="user-subhead">{{RendezVous?.dateRdv}}</span>
+                      </td>
+                      <td>{{RendezVous?.duree}}</td>
+                      <td class="text-center">
+                        <span class="label label-default">{{RendezVous?.description}}</span>
+                      </td>
+
+                      <td style="width: 20%;">
+                        <a class="table-link text-warning">
+                          <span class="fa-stack">
+                            <i class="fa fa-square fa-stack-2x"></i>
+                            <i class="fa fa-search-plus fa-stack-1x fa-inverse">
+                              <!-- <agm-map [latitude]='lat' [longitude]='long' [mapTypeId]='googleMapType'>
+                                                          </agm-map>-->
+                            </i>
+                          </span>
+                        </a>
+                        <a class="table-link text-info">
+                          <span class="fa-stack">
+                            <i class="fa fa-square fa-stack-2x"></i>
+                            <i class="fa fa-pencil fa-stack-1x fa-inverse" (click)="onOpenModal(RendezVous,'edit')"></i>
+                          </span>
+                        </a>
+                        <a class="table-link danger">
+                          <span class="fa-stack">
+                            <i class="fa fa-square fa-stack-2x"></i>
+                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"
+                              (click)="onOpenModal(RendezVous,'delete')"></i>
+                          </span>
+                        </a>
+                      </td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+              </div>
+              <form>
+                <div>
+
+
+
+                </div>
+              </form>
+
+              <!-- Add Employee Modal -->
+
+              <!-- <div class="container">
+                <div class="row height d-flex justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <div class="form"> <i class="fa fa-search"></i> <input type="search" (ngModelChange)="searchRdv(key.value)" #key="ngModel" ngModel
+                          name="key" id="searchName"  class="form-control form-input" placeholder="Search anything..."> <span class="left-pan"><i class="fa fa-microphone"></i></span> </div>
+                    </div>
+                </div> -->
+
+              <div class="modal fade" id="addrdvModel" tabindex="-1" role="dialog"
+                aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="addEmployeeModalLabel">Prendre un rendezvous </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form #addForm="ngForm" (ngSubmit)="onAddRdv(addForm)">
+                        <div class="form-group">
+                          <label for="name">Date </label>
+                          <input type="datetime-local" ngModel name="dateRdv" class="form-control" id="name"
+                            placeholder="Date" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="email">Durée </label>
+                          <input type="number" ngModel name="duree" class="form-control" id="email" placeholder="Duree"
+                            required>
+                        </div>
+                        <div class="form-group">
+                          <label for="phone">Description</label>
+                          <input type="text" ngModel name="description" class="form-control" id="jobTile"
+                            placeholder="Description" required>
+                        </div>
+
+
+                        <div class="modal-footer">
+                          <button type="button" id="add-rdv-form" class="btn btn-secondary"
+                            data-dismiss="modal">Close</button>
+                          <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save
+                            changes</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="updaterdvModel" tabindex="-1" role="dialog" aria-labelledby="rdvEditModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="updaterdvModel">Edit RDV </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form #editForm="ngForm">
+
+              <div class="form-group">
+
+                <input type="text" ngModel="{{editRdv?.idRdv}}" name="idRdv" class="form-control" id="idRdv"
+                  placeholder="Date" hidden>
+              </div>
+              <div class="form-group">
+                <label for="name">Date </label>
+                <input type="datetime-local" ngModel="{{editRdv?.dateRdv}}" name="dateRdv" class="form-control"
+                  id="dateRdv" placeholder="Date">
+              </div>
+              <div class="form-group">
+                <label for="dure">Durée</label>
+                <input type="text" ngModel="{{editRdv?.duree}}" name="duree" class="form-control" id="duree"
+                  placeholder="Duree">
+              </div>
+              <div class="form-group">
+                <label for="phone">Description</label>
+                <input type="text" ngModel="{{editRdv?.description}}" name="description" class="form-control"
+                  id="description" placeholder=" description">
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                <button (click)="onUpdaterdv(editForm.value)" data-dismiss="modal" class="btn btn-primary">Save
+                  changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="deleterdvModel" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModelLabel"> Cancel </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to Cancel ?</p>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+              <button (click)="onDeleterdv(deleteRdv?.idRdv)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <pagination-controls class="d-flex justify-content-center" (pageChange)="p = $event"></pagination-controls>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="clearfix"></div>
+
+    <a data-scroll href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+
+ 
+</body>
+
+<app-footer></app-footer>

@@ -8,11 +8,14 @@ import { Annonce } from '../entity/annonce.model';
 import { commentAnnonce } from '../entity/commentAnnonce';
 import { AnnonceService } from '../service/annonce.service';
 import { SignalerAnnonceService } from '../service/signaler-annonce.service';
-import {  } from '../service/signaler-annonce.service';
+import { } from '../service/signaler-annonce.service';
 import { CommentAnnonceService } from '../service/comment-annonce.service';
 import { SignalerAnnonce } from '../entity/SignalerAnnonce';
 import { BackendResponse } from '../entity/backend-response';
 //import { stringify } from 'querystring';
+import * as $ from 'jquery';
+import { LikeAnnonceService } from '../service/like-annonce.service';
+import { LikeAnnonce } from '../entity/likeAnnonce';
 
 
 @Component({
@@ -23,8 +26,9 @@ import { BackendResponse } from '../entity/backend-response';
 export class AnnonceDetailComponent implements OnInit {
   annonce: Annonce;
   idAnnonce: number;
-  idUser:number;
+  idUser: number;
   commentaires: commentAnnonce[];
+  likes: LikeAnnonce[];
   signal?: SignalerAnnonce;
 
   addCommentaire: commentAnnonce;
@@ -34,14 +38,14 @@ export class AnnonceDetailComponent implements OnInit {
   rate: number;
   modify: boolean;
 
-  isReported:boolean; 
+  isReported: boolean;
+  like: LikeAnnonce;
 
-
-  constructor(private toastr: ToastrService, protected annonceService: AnnonceService, protected signalerAnnonceService: SignalerAnnonceService, protected commentaireService: CommentAnnonceService, private route: ActivatedRoute) {
+  constructor(private toastr: ToastrService, protected annonceService: AnnonceService, protected likeService: LikeAnnonceService, protected signalerAnnonceService: SignalerAnnonceService, protected commentaireService: CommentAnnonceService, private route: ActivatedRoute) {
     this.annonce = { idAnnonce: 0 };
     this.idAnnonce = 0;
     this.commentaires = [];
-
+    this.likes = []
     this.addCommentaire = {};
     this.rate = 0;
 
@@ -49,6 +53,7 @@ export class AnnonceDetailComponent implements OnInit {
     this.commentairePosition = 0
     this.modify = false;
     this.signal = { IdSignaler: 0 };
+    this.like = { idLike: 0 };
 
     this.isReported = false;
     this.idUser = 1;
@@ -71,10 +76,21 @@ export class AnnonceDetailComponent implements OnInit {
       this.commentaires = res.body || [];
     });
 
+    this.likeService.getLikesByAnnonce(this.idAnnonce).subscribe((res: HttpResponse<LikeAnnonce[]>) => {
+      this.likes = res.body || [];
+      console.log(res.body)
+    });
+
+    this.likeService.getLikesByUserAndAnnonce(this.idUser, this.idAnnonce).subscribe((res: HttpResponse<LikeAnnonce[]>) => {
+      if (res.body?.length !== 0) {
+        this.like = res.body![0];
+      }
+    });
+
     this.signalerAnnonceService.getSignaux(this.idAnnonce).subscribe((res: HttpResponse<commentAnnonce[]>) => {
-      const signaux:SignalerAnnonce[] = res.body || [];
+      const signaux: SignalerAnnonce[] = res.body || [];
       console.log(signaux);
-      if(signaux.length !==0){
+      if (signaux.length !== 0) {
         this.isReported = true;
       }
     });
@@ -168,6 +184,57 @@ export class AnnonceDetailComponent implements OnInit {
     document.getElementById("addStar-5")!.innerHTML = "<i class='fa fa-star-o'></i>"
   }
 
+  saveReaction(idAnnonce: number, react: string) {
+    const newLike:LikeAnnonce = {
+      dateCreation: new Date(),
+      idAnnonce: idAnnonce,
+      idUser: this.idUser,
+      typeLike: react,
+    }
+    this.likeService.add(newLike).subscribe((res: HttpResponse<LikeAnnonce>) => {
+      this.like = res.body || newLike;
+    })
+  }
+
+  deleteReaction(idLike: number) {
+    this.likeService.delete(idLike).subscribe((res: HttpResponse<BackendResponse>) => {
+      if (res.body?.statusCode === 200) {
+        this.like = { idLike: 0 }
+      }
+    })
+  }
+
+  toggleLike() {
+    const reaction = $('.reacts'),
+      comments = $('.fa fa-envelope-o'),
+      maximize = $('.fa fa-ellipsis-h');
+
+    if (reaction.hasClass('show')) {
+      reaction.css({
+        'display': 'none',
+      });
+      comments.css({
+        'display': 'flex',
+      });
+      maximize.css({
+        'display': 'flex',
+      });
+      reaction.removeClass('show');
+    }
+    else {
+      reaction.css({
+        'display': 'flex',
+      });
+      comments.css({
+        'display': 'none',
+      });
+      maximize.css({
+        'display': 'none',
+      });
+      reaction.addClass('show');
+    }
+  }
+
   saveCommentaire(): void {
     const commentContent: string = (document.getElementById("commentTextarea") as HTMLTextAreaElement).value;
 
@@ -231,19 +298,20 @@ export class AnnonceDetailComponent implements OnInit {
     this.commentairePosition = 0;
   }
 
-  deleteComment(idComment:number): void {
+  deleteComment(idComment: number): void {
 
     this.commentaireService.delete(idComment).subscribe(
       (res) => {
-        if(res.status==200){
+        if (res.status == 200) {
           console.log(res.body!);
         }
       },
       error => console.log(error)
     );
 
-  
+
   }
+
   deleteAnnonce(): void {
     let conf = confirm("Etes-vous sûr ?");
     if (conf) {
@@ -257,18 +325,17 @@ export class AnnonceDetailComponent implements OnInit {
     }
   }
 
- 
-  AjoutSignal(raison:string) {
+  AjoutSignal(raison: string) {
     const newSignal: SignalerAnnonce = {
       idAnnonce: this.idAnnonce,
-      description:  raison,
+      description: raison,
       dateCreation: new Date(),
     };
 
 
     this.signalerAnnonceService.create(newSignal).subscribe(
       (res: HttpResponse<BackendResponse>) => {
-        
+
         if (res.status == 200) {
           this.toastr.success('Success!', res.body!.message);
           this.isReported = true;
@@ -288,6 +355,6 @@ export class AnnonceDetailComponent implements OnInit {
   }*/
   }
 
-  
-  
+
+
 }

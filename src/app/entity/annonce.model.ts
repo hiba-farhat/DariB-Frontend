@@ -5,7 +5,7 @@ export class Annonce
 {
   idAnnonce?: number;
   IdSignaler?: number;
-
+  idUser?:number;
   titre?: string;
   surface? : number;
   yearBuilt? :Date ;
@@ -27,7 +27,7 @@ export class Annonce
   imageplan? : string;
   video? : string;
   image? : string;
-  
+
 
   
 }

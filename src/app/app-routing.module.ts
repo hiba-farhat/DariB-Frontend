@@ -20,6 +20,8 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { ChatComponent } from './users/chat/chat.component';
 import { updatePasswordComponent } from './users/update-password/update-password.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
+import { VisiteComponent } from './visite/visite.component';
+import { VisiteFrontComponent } from './visite-front/visite-front.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -36,8 +38,8 @@ const routes: Routes = [
   { path: 'annonces/edit/:id', component: AnnonceEditComponent },
   { path: 'annonces/delete/:id', component: AnnonceComponent },
   { path: 'annonces/detail/:id', component: AnnonceDetailComponent },
-
-
+  { path: 'admin/visite' ,component: VisiteComponent},
+  { path: 'visite' ,component: VisiteFrontComponent}
 
 ];
 
@@ -63,6 +65,7 @@ export const routingComponents = [
   AnnonceAddComponent,
   AnnonceEditComponent,
   AnnonceDetailComponent,
+  VisiteComponent,
   
   
 ];

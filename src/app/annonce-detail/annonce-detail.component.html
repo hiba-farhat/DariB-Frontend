@@ -18,7 +18,8 @@
 
                                     <div class="detail-wrapper-body">
                                         <div class="listing-title-bar">
-                                            <h3>{{annonce.titre}}<span style="font-size: 14px;
+                                            <h3>{{annonce.titre}}
+                                               <button style="font-size: 14px;
                                                 background: #FF385C;
                                                 color: #fff;
                                                 border: 1px solid #fff;
@@ -26,8 +27,9 @@
                                                 border-radius: 50px;
                                                 top: -3px;
                                                 margin-left: 0.5rem;
-                                                position: relative;" class="mrg-l-5 category-tag">à
-                                                    {{annonce.offerType}}</span></h3>
+                                                position: relative;" class="mrg-l-5 category-tag" [routerLink]="[ '/visite' ]" >
+                                                     visite
+                                               </button> </h3>
                                             <div class="mt-0">
                                                 <a style="    text-decoration: none;
                                                 color: #666;" class="listing-address">
@@ -59,7 +61,8 @@
                                 </div>
                             </section>
                             <!-- main slider carousel items -->
-                            <div id="listingDetailsSlider" class="carousel listing-details-sliders slide mb-30">
+                            <div style="position: relative;padding: 10px !important;" id="listingDetailsSlider"
+                                class="carousel listing-details-sliders slide mb-30">
                                 <div
                                     style="display: flex;justify-content: space-between;align-items: center;align-content: center;">
                                     <h5 class="mb-4">Gallerie</h5>
@@ -68,98 +71,69 @@
                                             [routerLink]="[ '/annonces/edit', idAnnonce]">
                                             <i style="color: white;" class="fa fa-edit"></i>
                                         </a>
-                                        <button (click)="deleteAnnonce()" style="width: 40px ;"
+                                        <a (click)="deleteAnnonce()" style="width: 40px ;"
                                             class="Darybtn Darybtn-primary">
                                             <i style="color: white;" class="fa fa-trash"></i>
-                                        </button>
+                                        </a>
                                         <button *ngIf="isReported === false" class="Darybtn Darybtn-light"
                                             data-toggle="modal" data-target="#signalModal">
                                             <i class="fa fa-ban"></i>
                                             Signaler
                                         </button>
-
                                     </div>
-
-
                                 </div>
 
 
-                                <div class="carousel-inner">
-                                    <div class="active item carousel-item" data-slide-number="0">
-                                        <img style="width: 100%;" src="{{ annonce.image }}" class="img-fluid"
-                                            alt="slider-listing">
-                                    </div>
-                                    <div class="item carousel-item" data-slide-number="1">
-                                        <img style="width: 100%;"
-                                            src="assets/front-assets/images/single-property/s-2.jpg" class="img-fluid"
-                                            alt="slider-listing">
-                                    </div>
-                                    <div class="item carousel-item" data-slide-number="2">
-                                        <img style="width: 100%;"
-                                            src="assets/front-assets/images/single-property/s-3.jpg" class="img-fluid"
-                                            alt="slider-listing">
-                                    </div>
-                                    <div class="item carousel-item" data-slide-number="4">
-                                        <img style="width: 100%;"
-                                            src="assets/front-assets/images/single-property/s-4.jpg" class="img-fluid"
-                                            alt="slider-listing">
-                                    </div>
-                                    <div class="item carousel-item" data-slide-number="5">
-                                        <img style="width: 100%;"
-                                            src="assets/front-assets/images/single-property/s-5.jpg" class="img-fluid"
-                                            alt="slider-listing">
-                                    </div>
+                                <img style="width: 100%;height: 100%;object-fit: cover;border-radius: 7px;" src="{{ annonce.image }}"
+                                    class="img-fluid" alt="slider-listing">
 
-                                    <a class="carousel-control left" href="#listingDetailsSlider" data-slide="prev">
-                                        <i style="color: white;" class="fa fa-angle-left"></i></a>
-                                    <a class="carousel-control right" href="#listingDetailsSlider" data-slide="next">
-                                        <i style="color: white;" class="fa fa-angle-right"></i></a>
-
-                                </div>
-                                <!-- main slider carousel nav controls -->
-                                <ul class="carousel-indicators smail-listing list-inline">
-                                    <li class="list-inline-item active">
-                                        <a id="carousel-selector-0" class="selected" data-slide-to="0"
-                                            data-target="#listingDetailsSlider">
-                                            <img src="assets/front-assets/images/single-property/s-1.jpg"
-                                                class="img-fluid" alt="listing-small">
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a id="carousel-selector-1" data-slide-to="1"
-                                            data-target="#listingDetailsSlider">
-                                            <img src="assets/front-assets/images/single-property/s-2.jpg"
-                                                class="img-fluid" alt="listing-small">
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a id="carousel-selector-2" data-slide-to="2"
-                                            data-target="#listingDetailsSlider">
-                                            <img src="assets/front-assets/images/single-property/s-3.jpg"
-                                                class="img-fluid" alt="listing-small">
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a id="carousel-selector-3" data-slide-to="3"
-                                            data-target="#listingDetailsSlider">
-                                            <img src="assets/front-assets/images/single-property/s-4.jpg"
-                                                class="img-fluid" alt="listing-small">
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a id="carousel-selector-4" data-slide-to="4"
-                                            data-target="#listingDetailsSlider">
-                                            <img src="assets/front-assets/images/single-property/s-5.jpg"
-                                                class="img-fluid" alt="listing-small">
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div>
-
+                                <div *ngIf="like.idLike===0"  class="info">
+                                    <button (click)="toggleLike()" id="likecontainer"
+                                        style="background-color: #d7abe2;color: white;border-color: #d7abe2;border-radius: 30px"
+                                        class="btn btn-light btn-min-width box-shadow-5 mr-1 mb-1 like">
+                                        Réagir
+                                    </button>
+                                    <div id="reacts" class="reacts" style="display: none;margin-right: 3px;">
+                                        <div class="circle">
+                                            <img (click)="saveReaction(annonce.idAnnonce!,'heart')"
+                                                style="margin-left: -12px;width: 30px;height: 30px;object-fit: cover;cursor: pointer;"
+                                                src="assets/front-assets/images/reacts/heart.png" alt="">
+                                        </div>
+                                        <div class="circle">
+                                            <img (click)="saveReaction(annonce.idAnnonce!,'bravo')"
+                                                style="margin-left: -10px;width: 30px;height: 30px;object-fit: cover;cursor: pointer;"
+                                                src="assets/front-assets/images/reacts/bravo.png" alt="">
+                                        </div>
+                                        <div class="circle">
+                                            <img (click)="saveReaction(annonce.idAnnonce!,'triste')"
+                                                style="margin-left: -7px;width: 30px;height: 30px;object-fit: cover;cursor: pointer;"
+                                                src="assets/front-assets/images/reacts/triste.png" alt="">
+                                        </div>
+                                        <div style="margin-left: -11px;" class="circle">
+                                            <img (click)="saveReaction(annonce.idAnnonce!,'grr')"
+                                                style="width: 30px;height: 30px;object-fit: cover;"
+                                                src="assets/front-assets/images/reacts/grr.png" alt="">
+                                        </div>
+                                    </div>
 
                                 </div>
-                                <!-- main slider carousel items -->
+
+                                <div *ngIf="like.idLike!==0" class="info">
+                                    <div style="position: relative;">
+                                        <button id="likecontainer"
+                                        style="background-color: #d7abe2;color: white;border-color: #d7abe2;border-radius: 30px"
+                                        class="btn btn-light btn-min-width box-shadow-5 mr-1 mb-1 like">
+                                        {{ like.typeLike }}
+                                    </button>
+                                    <button (click)="deleteReaction(like.idLike!)" class="delete-like-btn">
+                                        <i class="fa fa-close"></i>
+                                    </button>
+                                    </div>
+                                    
+                                </div>
                             </div>
+
+
                             <div class="blog-info details mb-30">
                                 <h5 class="mb-4">Description</h5>
                                 {{annonce.description}}
@@ -204,7 +178,7 @@
                             </li>
                             <li>
                                 <span class="font-weight-bold mr-1">Year Built:</span>
-                                <span class="det">{{annonce.yearBuilt}}</span>
+                                <span class="det">{{annonce.yearBuilt|date}}</span>
                             </li>
                         </ul>
 
@@ -218,7 +192,7 @@
 
                     <div class="property wprt-image-video w50 pro">
                         <h5>Property Video</h5>
-                        <video style="width: 100%;" *ngIf="annonce.video!.includes('mp4')" controls="true">
+                        <video style="width: 100%;" *ngIf="annonce.video && annonce.video.includes('mp4')" controls="true">
                             <source type="video/webm" src="{{ annonce.video }}" />
                             <source type="video/mp4" src="{{ annonce.video }}" />
                         </video>
