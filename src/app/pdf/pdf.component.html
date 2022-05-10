@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand navbar-light bg-primary d-flex justify-content-between">
+    <div class="navbar-brand mb-0 h1 text-white">PDF</div>
+</nav>
+<div class="container-fluid">
+    <form #resumeForm="ngForm" *ngFor="let credit of creditList">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="shadow-sm card">
+                    <div class="card-body">
+                        <h4 class="card-title d-flex align-items-center">
+                            <i class="material-icons">
+                                
+                            </i>
+                            
+                        </h4>
+                        <div class="row">
+                            <div class="table-responsive">
+                                <table class="table no-wrap user-table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"
+                                                class="border-0 text-uppercase font-medium pl-4">Montant</th>
+
+                                            <th scope="col" class="border-0 text-uppercase font-medium">
+                                                Duree</th>
+
+                                            <th scope="col" class="border-0 text-uppercase font-medium">
+                                                Part mensuel</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+
+                                            <td>{{credit.montant}}</td>
+                                            <td>{{credit.duree}}</td>
+                                            <td>{{credit.partmensuel}}</td>
+                                            
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="shadow-sm card action-buttons">
+                    <button (click)="resumeForm.valid ? generatePDF('open') : ''"
+                        class="btn btn-primary d-flex align-items-center justify-content-center">
+                        <i class="material-icons">
+                            picture_as_pdf
+                        </i> <span>Open PDF</span></button>
+                    <button (click)="resumeForm.valid ? generatePDF('download') : ''"
+                        class="btn btn-primary d-flex align-items-center justify-content-center">
+                        <i class="material-icons">
+                            cloud_download
+                        </i><span>Download PDF</span></button>
+                    <button (click)="resumeForm.valid ? generatePDF('print') : ''"
+                        class="btn btn-primary d-flex align-items-center justify-content-center">
+                        <i class="material-icons">
+                            print
+                        </i><span>Print PDF</span></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
