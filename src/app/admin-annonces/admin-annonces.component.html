@@ -14,15 +14,23 @@
                 <app-admin-sidebar></app-admin-sidebar>
 
                 <div class="col-3">
-                </div>
-                <div class="col-8">
-                    <!-- content here -->
-                    <div>
-                    
-                        <button onclick="window.location.href='chart.component.html'">voir statistique</button>
-                              
-                    </div>
 
+                </div>
+
+                <div class="col-8">
+                    <div style="margin: 0 0 20px 0;" class="row my-properties">
+                        
+                        <div class="col-6">
+                            <google-chart >
+                            </google-chart>
+                        </div>
+    
+                        <div class="col-6">
+                            <google-chart >
+                            </google-chart>
+                        </div>
+                    </div>
+                    
                     <div class="my-properties">
                         <table class="table-responsive">
                             <thead>
@@ -35,58 +43,68 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let signal of signaux ;let i = index"  >
+                                <tr *ngFor="let signal of signaux ;let i = index">
                                     <td class="image myelist">
-                                        <a href="#"><img alt="my-properties-3" src="{{ signal.annonce!.image! }}" class="img-fluid"></a>
+                                        <a href="#"><img alt="my-properties-3" src="{{ signal.annonce!.image! }}"
+                                                class="img-fluid"></a>
                                     </td>
                                     <td>
                                         <div class="inner">
-                                            <a href="single-property-1.html"><h2>{{ signal.annonce!.titre! }}</h2></a>
-                                            <figure><i class="lni-map-marker"></i> {{ signal.annonce!.description! }}</figure>
-                                            
+                                            <a href="single-property-1.html">
+                                                <h2>{{ signal.annonce!.titre! }}</h2>
+                                            </a>
+                                            <figure><i class="lni-map-marker"></i> {{ signal.annonce!.description! }}
+                                            </figure>
+            
                                         </div>
                                     </td>
                                     <td>{{ signal.dateCreation!|date }}</td>
                                     <td>{{ signal.nbre! }}</td>
                                     <td class="actions">
                                         <button (click)="deleteAnnonce(signal.annonce!.idAnnonce!,i)" style="width: 40px ;"
-                                        class="Darybtn Darybtn-primary">
-                                        <i style="color: white;" class="fa fa-ban"></i>
-                                    </button>  
-                                    <button (click)="secondChance(signal.IdSignaler!,i)" style="width: 40px ;"
-                                    class="Darybtn Darybtn-primary">
-                                    <i style="color: white;" class="fa fa-trash"></i>
-                                </button>                                       
+                                            class="Darybtn Darybtn-primary">
+                                            <i style="color: white;" class="fa fa-ban"></i>
+                                        </button>
+                                        <button (click)="secondChance(signal.IdSignaler!,i)" style="width: 40px ;"
+                                            class="Darybtn Darybtn-primary">
+                                            <i style="color: white;" class="fa fa-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
-
+            
                             </tbody>
                         </table>
-
-
-
+            
+            
+            
                         <div class="pagination-container">
                             <nav>
                                 <ul class="pagination">
-                                    <li class="page-item"><a class="btn btn-common" href="#"><i class="lni-chevron-left"></i> Previous </a></li>
+                                    <li class="page-item"><a class="btn btn-common" href="#"><i class="lni-chevron-left"></i>
+                                            Previous </a></li>
                                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                                     <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="btn btn-common" href="#">Next <i class="lni-chevron-right"></i></a></li>
+                                    <li class="page-item"><a class="btn btn-common" href="#">Next <i
+                                                class="lni-chevron-right"></i></a></li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
-
-
-
                 </div>
-
-
             </div>
         </div>
-    </section>
-    <!-- END SECTION DASHBOARD -->
 
 
+
+
+
+
+
+
+
+
+
+</section>
 </div>
+<!-- END SECTION DASHBOARD -->

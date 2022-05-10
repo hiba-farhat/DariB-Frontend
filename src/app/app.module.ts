@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 
@@ -37,6 +37,8 @@ import { updatePasswordComponent } from './users/update-password/update-password
 import { CodeActivationComponent } from './users/code-activation/code-activation.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 
+import { GoogleChartsModule } from 'angular-google-charts';
+
 
 @NgModule({
   declarations: [
@@ -70,8 +72,10 @@ import { ForgotPasswordComponent } from './users/forgot-password/forgot-password
     SocialLoginModule,
     MatInputModule,
     MatSlideToggleModule,
+    GoogleChartsModule
 
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [{
     provide: 'SocialAuthServiceConfig',
     useValue: {
