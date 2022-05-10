@@ -1,0 +1,15 @@
+<div class="container mt-3">
+    <div class="card p-3" style="width: 28rem;" *ngIf="abonnement">
+        <div class="card-body mx-auto">
+          <h5 class="card-title">{{abonnement.type}}</h5>
+          <p class="card-text">{{abonnement.date_debut|date}}</p>
+          <p><b>Prix: </b>{{abonnement.prix }}</p>
+        </div>
+        <div class="card-body">
+            <app-payement
+            prix="{{abonnement.prix}}"
+            type="{{abonnement.type}}"></app-payement>
+        </div>
+      </div>
+</div>
+

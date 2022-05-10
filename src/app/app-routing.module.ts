@@ -12,6 +12,14 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { ChatComponent } from './users/chat/chat.component';
 import { updatePasswordComponent } from './users/update-password/update-password.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
+import { ListAbonnementComponent } from './gestion-abonnement/list-abonnement/list-abonnement.component';
+import { AddAbonnementComponent } from './gestion-abonnement/add-abonnement/add-abonnement.component';
+import { DetailleComponent } from './gestion-abonnement/detaille/detaille.component';
+import { ModeleComponent } from './gestion-abonnement/modele/modele.component';
+import { AssuranceComponent } from './gestion-abonnement/assurance/assurance.component';
+import { AddAssuranceComponent } from './gestion-abonnement/add-assurance/add-assurance.component';
+import { AbonnementFrontComponent } from './gestion-abonnement/abonnement-front/abonnement-front.component';
+//import { AbonnementComponent } from './abonnement/abonnement.component';
 
 const routes: Routes = [
   { path: 'home' ,component: HomeComponent},
@@ -23,7 +31,15 @@ const routes: Routes = [
   {path:'profile',component:ProfileComponent},
   {path:'chat',component:ChatComponent},
   {path: 'update', component:updatePasswordComponent},
-  {path: 'reset', component:ForgotPasswordComponent}
+  {path: 'reset', component:ForgotPasswordComponent},
+  { path: 'list-abonnement' ,component:ListAbonnementComponent},
+  { path: 'add-abonnement' ,component:AddAbonnementComponent},
+  { path: 'add-assurance' ,component:AddAssuranceComponent},
+  {path: 'detaille/:id', component: DetailleComponent},
+  {path: 'test', component:ModeleComponent  },
+  {path: 'front', component:AbonnementFrontComponent  },
+  { path: 'list-assurance' ,component:AssuranceComponent},
+  { path: 'list-abonnement/:id' ,component:ListAbonnementComponent},
 
 
 
