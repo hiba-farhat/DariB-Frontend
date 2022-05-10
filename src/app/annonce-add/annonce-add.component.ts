@@ -144,7 +144,7 @@ export class AnnonceAddComponent implements AfterViewInit {
       newAnnonce.yearBuilt = new Date(newAnnonce.yearBuilt!.toString());
       console.log(newAnnonce);
 
-
+      newAnnonce.idUser = 1;
       this.AnnonceService.create(newAnnonce).subscribe((res: HttpResponse<BackendResponse>) => {
         if (res.body!.statusCode == 200) {
           this.toastr.success('Success!', res.body!.message);

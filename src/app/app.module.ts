@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 
@@ -37,6 +37,10 @@ import { updatePasswordComponent } from './users/update-password/update-password
 import { CodeActivationComponent } from './users/code-activation/code-activation.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
 
+import { GoogleChartsModule } from 'angular-google-charts';
+import { VisiteFrontComponent } from './visite-front/visite-front.component';
+import { RendezVousServiceService } from './service/rendez-vous-service.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,8 @@ import { ForgotPasswordComponent } from './users/forgot-password/forgot-password
     ChatComponent,
     updatePasswordComponent,
     CodeActivationComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    VisiteFrontComponent
   ],
   imports: [
     BrowserModule,
@@ -70,9 +75,14 @@ import { ForgotPasswordComponent } from './users/forgot-password/forgot-password
     SocialLoginModule,
     MatInputModule,
     MatSlideToggleModule,
+    GoogleChartsModule,
+    NgxPaginationModule
+    
 
   ],
-  providers: [{
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  providers: [ RendezVousServiceService,
+  {
     provide: 'SocialAuthServiceConfig',
     useValue: {
       autoLogin: false,
