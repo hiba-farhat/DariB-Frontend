@@ -35,6 +35,10 @@ import { AdminReclamationComponent } from './admin-reclamation/admin-reclamation
 import { BanqueComponent } from './banque/banque.component';
 import { PdfComponent } from './pdf/pdf.component';
 import { AdminAddbankComponent } from './admin-addbank/admin-addbank.component';
+import { EstimationComponent } from './estimation/estimation.component';
+import { AdsComponent } from './ads/ads.component';
+import { ListrechercheComponent } from './components/listrecherche/listrecherche.component';
+import { DeleterechercheComponent } from './components/deleterecherche/deleterecherche.component';
 
 const routes: Routes = [
   { path: 'home' ,component: HomeComponent},
@@ -66,7 +70,14 @@ const routes: Routes = [
   { path: 'banques', component: BanqueComponent},
   {path :'simulateur', component: CreditsimulationComponent},
   {path: 'pdf', component: PdfComponent},
-  {path:'admin/add-bank', component: AdminAddbankComponent}
+  {path:'admin/add-bank', component: AdminAddbankComponent},
+  {path:' Ads',component:AdsComponent},
+  {path: '**', component: AdsComponent},
+  {path:"estimation",component:EstimationComponent},
+  { path: 'list' ,component: ListrechercheComponent},
+  { path: 'add' ,component: DeleterechercheComponent},
+ 
+
 ];
 
 @NgModule({
@@ -101,7 +112,8 @@ export const routingComponents = [
   AdminComponent,
   AdminAnnoncesComponent,
   AdminReclamationComponent,
-  AdminAddbankComponent
+  AdminAddbankComponent,
+  ListrechercheComponent,
  
   
   

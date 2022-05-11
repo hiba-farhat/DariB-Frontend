@@ -9,15 +9,21 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   styleUrls: ['./abonnement-front.component.css']
 })
 export class AbonnementFrontComponent implements OnInit {
-  abonnement!: Abonnement;
-  message: any;
+  abonnement: Abonnement ;
+  liste:any;
   Abonnements: string[] = ["Silver", "Gold","platinum"];
-  constructor(private ab:AbonnementService) { }
+  constructor(private Ab:AbonnementService) { }
 
   ngOnInit(): void {
-    let resp = this.ab.getAllAbonnement();
-
-    resp.subscribe((data) => this.message = data);
+    this.lister();
+  }
+  lister(){
+    console.log("tesst");
+    this.Ab.getAllAbonnement().subscribe((res)=>{console.log("yaaaaay"+res);
+    this.liste=res;
+    console.log(this.liste=res);
+    },(err)=>{console.log(err+"nayyyyy");
+    })
   }
 
 }

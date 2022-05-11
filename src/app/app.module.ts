@@ -16,6 +16,8 @@ import { GoogleLoginProvider, FacebookLoginProvider } from '@abacritt/angularx-s
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+
 import { FooterComponent } from './footer/footer.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminFooterComponent } from './admin-footer/admin-footer.component';
@@ -60,6 +62,16 @@ import { CreditsimulationComponent } from './creditsimulation/creditsimulation.c
 import { PdfComponent } from './pdf/pdf.component';
 
 import { AdminAddbankComponent } from './admin-addbank/admin-addbank.component';
+import { AddRechComponent } from './components/add-rech/add-rech.component';
+import { ListfavorisComponent } from './components/listfavoris/listfavoris.component';
+import { ListrechercheComponent } from './components/listrecherche/listrecherche.component';
+import { EstimationComponent } from './estimation/estimation.component';
+import { AdsComponent } from './ads/ads.component';
+
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -69,6 +81,7 @@ import { AdminAddbankComponent } from './admin-addbank/admin-addbank.component';
     VisiteFrontComponent,
     HeaderComponent,
     FooterComponent,
+    HomeComponent,
     AdminHeaderComponent,
     AdminFooterComponent,
     AdminSidebarComponent,
@@ -94,7 +107,15 @@ import { AdminAddbankComponent } from './admin-addbank/admin-addbank.component';
     CreditComponent,
     CreditsimulationComponent,
     PdfComponent,
-    AdminAddbankComponent
+    AdminAddbankComponent,
+    
+  
+    AddRechComponent,
+    ListfavorisComponent,
+    ListrechercheComponent,
+    AddRechComponent,
+    EstimationComponent,
+    AdsComponent
    
     
   ],
@@ -115,7 +136,12 @@ import { AdminAddbankComponent } from './admin-addbank/admin-addbank.component';
     MatSlideToggleModule,
     NgxPaginationModule,
     NgxStripeModule.forRoot('pk_test_51KsxypJ41Eoj1C0hmwkcIFqSraigdCpltjKzJCkWUah4bvT09FwP5a8uw7OSnigeMSzltOnd3tI9kyKK5WuJv8Gy00GOOw5RMM'),
-    MatButtonModule
+    MatButtonModule ,
+    MatDialogModule,
+    MatGridListModule,
+    MatIconModule
+  
+
     
     
   ],
