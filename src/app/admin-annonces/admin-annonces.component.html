@@ -21,12 +21,14 @@
                     <div style="margin: 0 0 20px 0;" class="row my-properties">
                         
                         <div class="col-6">
-                            <google-chart >
+                            <google-chart [title]="pieChart.title" [type]="pieChart.type" [data]="pieChart.data"
+                                [columns]="pieChart.columns" [options]="pieChart.options">
                             </google-chart>
                         </div>
     
                         <div class="col-6">
-                            <google-chart >
+                            <google-chart [title]="barChart.title" [type]="barChart.type" [data]="barChart.data"
+                                [columns]="barChart.columns" [options]="barChart.options">
                             </google-chart>
                         </div>
                     </div>
@@ -39,6 +41,8 @@
                                     <th class="p-0"></th>
                                     <th>Report Date</th>
                                     <th>nombre de signaux</th>
+                                    
+                                    <th>description</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -60,6 +64,7 @@
                                     </td>
                                     <td>{{ signal.dateCreation!|date }}</td>
                                     <td>{{ signal.nbre! }}</td>
+                                    <td>{{ signal.description! }}</td>
                                     <td class="actions">
                                         <button (click)="deleteAnnonce(signal.annonce!.idAnnonce!,i)" style="width: 40px ;"
                                             class="Darybtn Darybtn-primary">

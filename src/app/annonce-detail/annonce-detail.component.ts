@@ -15,7 +15,8 @@ import { BackendResponse } from '../entity/backend-response';
 //import { stringify } from 'querystring';
 import * as $ from 'jquery';
 import { LikeAnnonceService } from '../service/like-annonce.service';
-import { LikeAnnonce } from '../entity/LikeAnnonce';
+import { LikeAnnonce } from '../entity/likeAnnonce';
+
 
 @Component({
   selector: 'app-annonce-detail',

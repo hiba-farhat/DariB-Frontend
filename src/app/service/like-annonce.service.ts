@@ -4,7 +4,8 @@ import { SERVER_API_URL } from '../app.constants';
 import { Observable } from 'rxjs';
 import { createRequestOption } from '../utils/request-util';
 import { BackendResponse } from '../entity/backend-response';
-import { LikeAnnonce } from '../entity/LikeAnnonce';
+import { LikeAnnonce } from '../entity/likeAnnonce';
+
 
 
 type EntityResponseType = HttpResponse<LikeAnnonce>;

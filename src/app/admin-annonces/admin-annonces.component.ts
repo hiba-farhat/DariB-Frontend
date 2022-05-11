@@ -26,7 +26,7 @@ import {
 export class AdminAnnoncesComponent implements OnInit {
 
   public pieChart:any = {
-    title: 'pie Chart',
+    title: 'pourcentage des regions dans les annonces publiés',
     type: ChartType.PieChart,
     data: [],
     columns: ['Element', 'Density'],
@@ -40,7 +40,7 @@ export class AdminAnnoncesComponent implements OnInit {
   };
 
   public barChart:any = {
-    title: 'bar Chart',
+    title: 'moyenne des prix de vente par region selon les annonces publiés',
     type: ChartType.BarChart,
     data: [],
     columns: ['Element', 'Density'],
