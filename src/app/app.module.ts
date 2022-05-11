@@ -8,28 +8,23 @@ import { FooterComponent } from './footer/footer.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminFooterComponent } from './admin-footer/admin-footer.component';
 import { AdminSidebarComponent } from './admin-sidebar/admin-sidebar.component';
-import {  ProfileComponent } from './users/profile/profile.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ProfileSidebarComponent } from './users/profile-sidebar/profile-sidebar.component';
-import { AdminUsersComponent } from './admin-users/admin-users.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './users/login/login.component';
-import { ChatComponent } from './users/chat/chat.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { ListfavorisComponent } from './components/listfavoris/listfavoris.component';
+import { ListrechercheComponent } from './components/listrecherche/listrecherche.component';
+import { AddRechComponent } from './components/add-rech/add-rech.component';
+import { EstimationComponent } from './estimation/estimation.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { updatePasswordComponent } from './users/update-password/update-password.component';
-import { CodeActivationComponent } from './users/code-activation/code-activation.component';
-import { SocialLoginModule, SocialAuthServiceConfig } from '@abacritt/angularx-social-login';
-import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
-import { ToastrModule } from 'ngx-toastr';
-import {
-  GoogleLoginProvider,
-  FacebookLoginProvider
-} from '@abacritt/angularx-social-login';
+import {MatButtonModule} from '@angular/material/button';
+import { AdsComponent } from './ads/ads.component';
+
+import {NgxPaginationModule} from 'ngx-pagination';
+
+
 
 
 
@@ -42,53 +37,35 @@ import {
     AdminHeaderComponent,
     AdminFooterComponent,
     AdminSidebarComponent,
-    ProfileComponent,
-    ProfileSidebarComponent,
-    AdminUsersComponent,
-    LoginComponent,
-    ChatComponent,
-    updatePasswordComponent,
-    CodeActivationComponent,
-    ForgotPasswordComponent,
+    HomeComponent,
+    ListfavorisComponent,
+    ListrechercheComponent,
+    AddRechComponent,
+    EstimationComponent,
+    AdsComponent
+    
+  
+    
+
     
   ],
   imports: [
-    BrowserAnimationsModule, 
-    ToastrModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    NgbModule,
-    BrowserAnimationsModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
-    SocialLoginModule,
-    MatInputModule,
-    MatSlideToggleModule,
+    MatDialogModule,
+    MatGridListModule,
+    MatIconModule,
+    BrowserAnimationsModule ,
+    MatButtonModule,
+    NgxPaginationModule
+    
+    
+    
   ],
-  providers: [{
-    provide: 'SocialAuthServiceConfig',
-    useValue: {
-      autoLogin: false,
-      providers: [
-        {
-          id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider(
-            '947770575510-d7tlf1akkns5h1gairb5e6r2i2csn72u.apps.googleusercontent.com'
-          )
-        },
-        {
-          id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider('3000859393558507')
-        }
-      ],
-      onError: (err) => {
-        console.error(err);
-      }
-    } as SocialAuthServiceConfig,
-  }],
+  providers: [ReactiveFormsModule,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

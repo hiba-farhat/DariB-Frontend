@@ -1,0 +1,241 @@
+ <div id="wrapper">
+    <app-header></app-header>
+
+
+
+    <div class="clearfix"></div>
+
+    <section class="single-proper blog details">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 blog-pots">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section style="padding-bottom: 20px;" class="headings-2 pt-0">
+                                <div class="pro-wrapper">
+                                    <div style="width: 88%;" class="detail-wrapper-body">
+                                        <div class="listing-title-bar">
+                                            <h3>{{annonce.titre}}<span style="font-size: 14px;
+                                                background: #FF385C;
+                                                color: #fff;
+                                                border: 1px solid #fff;
+                                                padding: 5px 15px;
+                                                border-radius: 50px;
+                                                top: -3px;
+                                                margin-left: 0.5rem;
+                                                position: relative;" class="mrg-l-5 category-tag">à {{annonce.offerType}}</span></h3>
+                                            <div class="mt-0">
+                                                <a style="    text-decoration: none;
+                                                color: #666;" class="listing-address">
+                                                    <i class="fa fa-map-marker pr-2 ti-location-pin mrg-r-5"></i>{{annonce.localisation}}
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="width: 12%;">
+                                        <div class="detail-wrapper-body">
+                                            <div class="listing-title-bar">
+                                                <h4 style="font-size: 24px;
+                                                font-weight: 600;
+                                                color: #FF385C;
+                                                text-transform: capitalize !important;">{{annonce.price}}dt</h4>
+                                                <div class="mt-0">
+                                                    <a class="listing-address">
+                                                        <p style="font-size: 17px;
+                                                        text-decoration: none;
+                                                        color: #333;">{{annonce.surface}}m²</p>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- main slider carousel items -->
+                            <div id="listingDetailsSlider" class="carousel listing-details-sliders slide mb-30">
+                                <h5 class="mb-4">Gallerie</h5>
+                                <div class="carousel-inner">
+                                    <div class="active item carousel-item" data-slide-number="0">
+                                        <img style="width: 100%;" src="assets/front-assets/images/single-property/s-1.jpg" class="img-fluid"
+                                            alt="slider-listing">
+                                    </div>
+                                    <div class="item carousel-item" data-slide-number="1">
+                                        <img style="width: 100%;" src="assets/front-assets/images/single-property/s-2.jpg" class="img-fluid"
+                                            alt="slider-listing">
+                                    </div>
+                                    <div class="item carousel-item" data-slide-number="2">
+                                        <img style="width: 100%;" src="assets/front-assets/images/single-property/s-3.jpg" class="img-fluid"
+                                            alt="slider-listing">
+                                    </div>
+                                    <div class="item carousel-item" data-slide-number="4">
+                                        <img style="width: 100%;" src="assets/front-assets/images/single-property/s-4.jpg" class="img-fluid"
+                                            alt="slider-listing">
+                                    </div>
+                                    <div class="item carousel-item" data-slide-number="5">
+                                        <img style="width: 100%;" src="assets/front-assets/images/single-property/s-5.jpg" class="img-fluid"
+                                            alt="slider-listing">
+                                    </div>
+
+                                    <a class="carousel-control left" href="#listingDetailsSlider" data-slide="prev">
+                                        <i style="color: white;" class="fa fa-angle-left"></i></a>
+                                    <a  class="carousel-control right" href="#listingDetailsSlider" data-slide="next">
+                                        <i style="color: white;" class="fa fa-angle-right"></i></a>
+
+                                </div>
+                                <!-- main slider carousel nav controls -->
+                                <ul class="carousel-indicators smail-listing list-inline">
+                                    <li class="list-inline-item active">
+                                        <a id="carousel-selector-0" class="selected" data-slide-to="0"
+                                            data-target="#listingDetailsSlider">
+                                            <img src="assets/front-assets/images/single-property/s-1.jpg"
+                                                class="img-fluid" alt="listing-small">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a id="carousel-selector-1" data-slide-to="1"
+                                            data-target="#listingDetailsSlider">
+                                            <img src="assets/front-assets/images/single-property/s-2.jpg"
+                                                class="img-fluid" alt="listing-small">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a id="carousel-selector-2" data-slide-to="2"
+                                            data-target="#listingDetailsSlider">
+                                            <img src="assets/front-assets/images/single-property/s-3.jpg"
+                                                class="img-fluid" alt="listing-small">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a id="carousel-selector-3" data-slide-to="3"
+                                            data-target="#listingDetailsSlider">
+                                            <img src="assets/front-assets/images/single-property/s-4.jpg"
+                                                class="img-fluid" alt="listing-small">
+                                        </a>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <a id="carousel-selector-4" data-slide-to="4"
+                                            data-target="#listingDetailsSlider">
+                                            <img src="assets/front-assets/images/single-property/s-5.jpg"
+                                                class="img-fluid" alt="listing-small">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- main slider carousel items -->
+                            </div>
+                            <div class="blog-info details mb-30">
+                                <h5 class="mb-4">Description</h5>
+                                {{annonce.description}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single homes-content details mb-30">
+                        <!-- title -->
+                        <h5 class="mb-4">Property Details</h5>
+                        <ul class="homes-list clearfix">
+                            <li>
+                                <span class="font-weight-bold mr-1">Property ID:</span>
+                                <span class="det">{{annonce.idAnnonce}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Property Type:</span>
+                                <span class="det">{{annonce.typeProp}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Property status:</span>
+                                <span class="det">à {{annonce.offerType}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Property Price:</span>
+                                <span class="det">{{annonce.price}}dt</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Rooms:</span>
+                                <span class="det">{{annonce.roomsNum}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Bedrooms:</span>
+                                <span class="det">{{annonce.bedNum}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Bath:</span>
+                                <span class="det">{{annonce.bathNum}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Garages:</span>
+                                <span class="det">{{annonce.garagenum}}</span>
+                            </li>
+                            <li>
+                                <span class="font-weight-bold mr-1">Year Built:</span>
+                                <span class="det">{{annonce.yearBuilt}}</span>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="floor-plan property wprt-image-video w50 pro">
+                        <h5>Floor Plans</h5>
+                        <img style="width: 100%;" alt="image" src="assets/front-assets/images/bg/floor-plan-1.png">
+                    </div>
+
+                    <div class="property wprt-image-video w50 pro">
+                        <h5>Property Video</h5>
+                        <img style="width: 100%;" alt="image" src="assets/front-assets/images/slider/home-slider-4.jpg">
+
+                        <div class="iq-waves">
+                            <div class="waves wave-1"></div>
+                            <div class="waves wave-2"></div>
+                            <div class="waves wave-3"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <section class="single reviews leve-comments details">
+                <div id="add-review" class="add-review-box">
+                    <!-- Add Review -->
+                    <h3 class="listing-desc-headline margin-bottom-20 mb-4">Ajouter un commentaire</h3>
+                    <span class="leave-rating-title">donner un rating</span>
+                    <!-- Rating / Upload Button -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <!-- Leave Rating -->
+                            <div class="clearfix"></div>
+                            <div class="leave-rating margin-bottom-30">
+                                <input type="radio" name="rating" id="rating-1" value="1">
+                                <label for="rating-1" class="fa fa-star"></label>
+                                <input type="radio" name="rating" id="rating-2" value="2">
+                                <label for="rating-2" class="fa fa-star"></label>
+                                <input type="radio" name="rating" id="rating-3" value="3">
+                                <label for="rating-3" class="fa fa-star"></label>
+                                <input type="radio" name="rating" id="rating-4" value="4">
+                                <label for="rating-4" class="fa fa-star"></label>
+                                <input type="radio" name="rating" id="rating-5" value="5">
+                                <label for="rating-5" class="fa fa-star"></label>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        >
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 data">
+                            <form action="#">
+                                
+                                <div class="col-md-12 form-group">
+                                    <textarea class="form-control" id="exampleTextarea" rows="8" placeholder="Review" required=""></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg mt-2">ajouter  commentaire</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>s
+        </div>
+        
+    </section>
+   
+
+
+    <app-footer></app-footer>
+
+
+
+</div>

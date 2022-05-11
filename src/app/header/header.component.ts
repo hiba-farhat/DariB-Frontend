@@ -1,35 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
-import { User } from '../entity/user';
-import { Route, Router } from '@angular/router';
-import { UserService } from '../service/user.service';
-import Swal from 'sweetalert2';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { HttpHeaders } from '@angular/common/http';
-
-
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-
-
 export class HeaderComponent implements OnInit {
 
-  public landingPage:string = "/home/dashboard/order";
-  
-
-
-  constructor() {}
+  constructor() { }
 
   ngOnInit(): void {
-    document.getElementById("app-body")!.className = "homepage-9 hp-6 homepage-1"
+    document.getElementById("app-body")!.className = "homepage-9 hp-6 homepage-1";
+    $('#status').fadeOut();
+    $('#preloader').delay(200).fadeOut('slow');
 
+    $(window).on('scroll', function () {
+        var sticky = $(".sticky-header");
+        var scroll = $(window).scrollTop();
+        if (scroll! < 265) {
+            sticky.removeClass("sticky");
+        } else {
+            sticky.addClass("sticky");
+        }
+    });
+
+    $(window).on('scroll load', function () {
+      $("#header.cloned #logo img").attr("src", $('#header #logo img').attr('data-sticky-logo')!);
+    });
+
+    $(".dropdown-filter").on('click', function () {
+      $(".explore__form-checkbox-list").toggleClass("filter-block");
+    });
   }
 
   showLoginForm(): void {
@@ -47,8 +48,5 @@ export class HeaderComponent implements OnInit {
     $("#tab-1").hide(300)
     $("#tab-2").show(300)
   }
-
-
-
 
 }

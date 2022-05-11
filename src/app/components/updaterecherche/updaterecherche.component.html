@@ -1,0 +1,163 @@
+        
+        <div class="tab-content" >
+            <app-header></app-header>
+                                <!--<form name="createForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="createForm" ></form> -->
+                                        <div class="tab-pane fade active show" id="tabs_1">
+                                            <form [formGroup]="form" #searchInfo (ngSubmit)=" RechercheForm()">  
+                                                <div class="rld-main-search">
+                                                <div class="row">
+                                                    <div class="rld-single-input">
+                                                        <input type="text"  placeholder="Enter Keyword..."  formControlName="titre" >
+                                                    </div>
+                                                    <div class="rld-single-select ml-22" class="form-group">
+                                                        <select class="select single-select" class="form-control" 
+                                
+                                                        formControlName="typeprop" >
+                                                       
+                                                        <option>Family House</option>
+                                                        <option>Apartement</option>
+                                                        <option>Condo</option>
+                                                        <option>Office</option>
+                
+                                                    </select>
+                                                        
+                                                    </div>
+                
+                                                    <div class="rld-single-select ml-22" class="form-group">
+                                                        <select  class="nice-select select single-select mr-0" tabindex="0" class="form-control" 
+                                                            formControlName="localisation" >
+                                                            
+                                                            <option >Location</option>
+                                                            <option >Los Angeles</option>
+                                                            <option >Chicago</option>
+                                                            <option >Philadelphia</option>
+                                                            <option >San Francisco</option>
+                                                            <option >Miami</option>
+                                                            <option >Houston</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="dropdown-filter"><span>Advanced Search</span></div>
+                                                    <div class="col-12">
+                                                        <button  type="submit" value="Search Now" class="btn btn-yellow">Search Now</button>
+                                                        <button  click="(getData)">Search Now</button>
+                                                    </div>
+                                                    <div class="explore__form-checkbox-list full-filter">
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0">
+                                                                <!-- Form Property Status -->
+                                                                <div class="form-group categories">
+                                                                    <select  class="nice-select select single-select mr-0" tabindex="0" class="form-control" 
+                                                                    formControlName="offertype" >
+                                                                        <option >For Sale</option>
+                                                                        <option >For Rent</option>
+                                                                    
+                                                                    </select>
+                                                                </div>
+                                                                <!--/ End Form Property Status -->
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6 py-1 pr-30 pl-0 ">
+                                                                <!-- Form Bedrooms -->
+                                                                <div class="form-group beds " >
+                                                                        <div class="col-12">
+                                        
+                                                                            <input style="border: 1px solid #ddd;
+                                                                                height: 37px;
+                                                                                padding: 10px;
+                                                                                width: 100%;" type="number" name="BedRoom" id="BedRoom" formControlName="bedNum"
+                                                                                placeholder="bedNum">
+                                                                        </div>
+                                                                  
+                                                                </div>
+                                                                <!--/ End Form Bedrooms -->
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6 py-1 pl-0 pr-0">
+                                                                <!-- Form Bathrooms -->
+                                                                <div class="form-group bath">
+                                                                    <div class="col-12">
+                                                              
+                                                                        <input style="border: 1px solid #ddd;
+                                                                            height: 37px;
+                                                                            padding: 10px;
+                                                                            width: 100%;" type="number" name="Bathroom" id="Bathroom" formControlName="bathNum"
+                                                                            placeholder="bathNum">
+                                                                    </div>
+                                                                </div>
+                                                                <!--/ End Form Bathrooms -->
+                                                            </div>
+                                                            <div class="col-lg-5 col-md-12 col-sm-12 py-1 pr-30 mr-5 sld">
+                                                                <!-- Price Fields -->
+                                                                <div class="main-search-field-2">
+                                                                    <!-- Area Range -->
+                                                                    <label>Area Size</label>
+                                                                   
+                                                                        
+                                                                        <input style="border: 1px solid #ddd;
+                                                                        height: 37px;
+                                                                        padding: 10px;
+                                                                        width: 30%;" type="number" name="surface" id="surface" formControlName="surface"
+                                                                        placeholder="surface">     
+                                                                                                                                           <div class="clearfix"></div>
+                                                                    
+                                                                    <br>
+                                                                    <!-- Price Range -->
+                                                                    <label>Price Range</label>
+                                                                   
+                                                                        <input style="border: 1px solid #ddd;
+                                                                        height: 37px;
+                                                                        padding: 10px;
+                                                                        width: 30%;" type="number" name="price" id="price" formControlName="price"
+                                                                        placeholder="Price">     
+                                                                                                                                                    <div class="clearfix"></div>
+                                                                    </div>
+                                                                </div>
+                                                            
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30">
+                                                                <!-- Checkboxes -->
+                                                                <div class="checkboxes one-in-row margin-bottom-10 ch-1">
+                                                                    <input id="check-2" type="checkbox" name="check">
+                                                                    <label for="check-2">Air Conditioning</label>
+                                                                    <input id="check-3" type="checkbox" name="check">
+                                                                    <label for="check-3">Swimming Pool</label>
+                                                                    <input id="check-4" type="checkbox" name="check">
+                                                                    <label for="check-4">Central Heating</label>
+                                                                    <input id="check-5" type="checkbox" name="check">
+                                                                    <label for="check-5">Laundry Room</label>
+                                                                    <input id="check-6" type="checkbox" name="check">
+                                                                    <label for="check-6">Gym</label>
+                                                                    <input id="check-7" type="checkbox" name="check">
+                                                                    <label for="check-7">Alarm</label>
+                                                                    <input id="check-8" type="checkbox" name="check">
+                                                                    <label for="check-8">Window Covering</label>
+                                                                </div>
+                                                                <!-- Checkboxes / End -->
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 py-1 pr-30">
+                                                                <!-- Checkboxes -->
+                                                                <div class="checkboxes one-in-row margin-bottom-10 ch-2">
+                                                                    <input id="check-9" type="checkbox" name="check">
+                                                                    <label for="check-9">WiFi</label>
+                                                                    <input id="check-10" type="checkbox" name="check">
+                                                                    <label for="check-10">TV Cable</label>
+                                                                    <input id="check-11" type="checkbox" name="check">
+                                                                    <label for="check-11">Dryer</label>
+                                                                    <input id="check-12" type="checkbox" name="check">
+                                                                    <label for="check-12">Microwave</label>
+                                                                    <input id="check-13" type="checkbox" name="check">
+                                                                    <label for="check-13">Washer</label>
+                                                                    <input id="check-14" type="checkbox" name="check">
+                                                                    <label for="check-14">Refrigerator</label>
+                                                                    <input id="check-15" type="checkbox" name="check">
+                                                                    <label for="check-15">Outdoor Shower</label>
+                                                                </div>
+                                                                <!-- Checkboxes / End -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            </form>
+                                        </div>
+                                        </div>
+                                                             
+ 

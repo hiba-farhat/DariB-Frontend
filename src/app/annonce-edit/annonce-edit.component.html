@@ -1,0 +1,302 @@
+<div id="wrapper">
+    <app-header></app-header>
+
+
+
+    <div class="clearfix"></div>
+
+    <section class="single-proper blog details">
+        <div class="container">
+            <div style="    background: #fff none repeat scroll 0 0;margin-bottom: 30px;
+            padding: 30px;">
+                <h3 style="border-bottom: 1px solid #ddd;
+                margin-bottom: 40px;
+                padding-bottom: 25px;
+                color: #FF385C;
+                text-transform: capitalize;">Modifier une annonce</h3>
+                <form name="createForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="createForm">
+                    <div style="padding: 10px 50px;">
+                        <p>à propos</p>
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="title">Offre Type</label>
+                            </div>
+                            <div class="col-7">
+                                <label for="titre">titre</label>
+                            </div>
+
+                            <div class="col-3">
+                                <label for="surface">Surface</label>
+                            </div>
+
+
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <select name="offerType" class="form-control" id="exampleFormControlSelect1"
+                                        formControlName="offerType">
+                                        <option value="vendre">vendre</option>
+                                        <option value="louer">louer</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-7">
+                                <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="text" name="title" id="titre" formControlName="titre"
+                                    placeholder="titre">
+                            </div>
+
+                            <div class="col-3">
+                                <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="text" name="surface" id="surface" formControlName="surface"
+                                    placeholder="surface">
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div style="padding: 10px 50px;">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="title">Description</label>
+                            </div>
+                            <div class="col-12">
+                                <textarea style="border: 1px solid #ddd;
+                            height: 180px;
+                            padding: 10px;
+                            width: 100%;" id="description" name="pro-dexc" placeholder="Describe about your property"
+                                    formControlName="description"></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <div style="padding: 10px 50px;">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="prix">prix</label>
+                            </div>
+                            <div class="col-12">
+                                <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="number" name="title" id="title" formControlName="price"
+                                    placeholder="Price">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 10px 50px;">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="titre">localisation</label>
+                            </div>
+                            <div class="col-12">
+                                <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="text" name="title" id="title"
+                                    formControlName="localisation" placeholder="localisation">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+                    <div style="padding: 10px 50px;">
+                        <div class="row">
+                            <div class="col-2">
+                                <label for="title">type du bien</label>
+                            </div>
+                            <div class="col-7">
+                                <label for="titre">parking</label>
+                            </div>
+
+                            <div class="col-3">
+                                <label for="surface">garage</label>
+                            </div>
+
+
+                            <div class="col-2">
+                                <div class="form-group">
+                                    <select class="form-control" id="exampleFormControlSelect1"
+                                        formControlName="typeProp">
+                                        <option>villa</option>
+                                        <option>apartement</option>
+                                        <option>studio</option>
+                                        <option>maison</option>
+                                        <option>office</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-7">
+                                <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="text" name="title" id="titre" formControlName="parking"
+                                    placeholder="parking">
+                            </div>
+
+                            <div class="col-3">
+                                <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="number" name="surface" id="surface"
+                                    formControlName="garagenum" placeholder="garage">
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div style="padding: 10px 50px;">
+                        <div class="row">
+                            <div class="col-6">
+                                <p>Date de construction</p>
+                            </div>
+                            <div class="col-6">
+                                <p>Age</p>
+                            </div>
+
+
+
+                            <div class="col-6">
+                                <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="date" name="YearBuilt" id="YearBuilt"
+                                    formControlName="yearBuilt" placeholder="date de construction ">
+                            </div>
+
+                            <div class="col-6">
+                                <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="text" formControlName="age" name="title" id="title"
+                                    placeholder="age">
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div style="padding: 20px 50px;">
+                        <p>Détails sur les chambres </p>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>nombre de chambre </label>
+
+                                <input style="border: 1px solid #ddd;
+                                    height: 37px;
+                                    padding: 10px;
+                                    width: 100%;" type="number" name="title" id="title" formControlName="bedNum"
+                                    placeholder="Nombre de chambre à coucher">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="padding: 20px 50px;">
+                        <div class="row">
+                            <div class="col-12">
+                                <label>nombre de chambre à coucher</label>
+                            </div>
+                            <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="number" name="roomsNum" id="roomsNum"
+                                formControlName="roomsNum" placeholder="num de chambre">
+                        </div>
+                    </div>
+
+                    <div style="padding: 20px 50px;">
+                        <div class="row">
+                            <div class="col-12">
+                                <label>nombre de wc </label>
+                            </div>
+                            <input style="border: 1px solid #ddd;
+                                        height: 37px;
+                                        padding: 10px;
+                                        width: 100%;" type="number" name="title" id="title" formControlName="bathNum">
+
+
+                        </div>
+                    </div>
+
+
+                    <div style="padding: 20px 50px;">
+                        <p>Veuillez Ajouter des images </p>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="custom-file">
+                                    <input type="file" formControlName="image">
+                                    <label class="custom-file-label" for="customFile">ajouter
+                                        image</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 20px 50px;">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile"
+                                        formControlName="imageplan">
+                                    <label class="custom-file-label" for="customFile">ajouter image du plan</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 20px 50px;">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile"
+                                        formControlName="video">
+                                    <label class="custom-file-label" for="customFile">ajouter un
+                                        video</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="padding: 20px 50px;">
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" value="modifier une annonce" class="btn btn-yellow">modifer
+                                    annonce</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+</div>
+<app-footer></app-footer>
