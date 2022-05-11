@@ -21,12 +21,14 @@
                     <div style="margin: 0 0 20px 0;" class="row my-properties">
                         
                         <div class="col-6">
-                            <google-chart >
+                            <google-chart [title]="pieChart.title" [type]="pieChart.type" [data]="pieChart.data"
+                                [columns]="pieChart.columns" [options]="pieChart.options">
                             </google-chart>
                         </div>
     
                         <div class="col-6">
-                            <google-chart >
+                            <google-chart [title]="barChart.title" [type]="barChart.type" [data]="barChart.data"
+                                [columns]="barChart.columns" [options]="barChart.options">
                             </google-chart>
                         </div>
                     </div>

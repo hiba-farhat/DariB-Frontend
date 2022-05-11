@@ -95,22 +95,22 @@
                                     </button>
                                     <div id="reacts" class="reacts" style="display: none;margin-right: 3px;">
                                         <div class="circle">
-                                            <img (click)="saveReaction(annonce.idAnnonce!,'heart')"
+                                            <img (click)="saveReaction(annonce.idAnnonce!,'jaime')"
                                                 style="margin-left: -12px;width: 30px;height: 30px;object-fit: cover;cursor: pointer;"
                                                 src="assets/front-assets/images/reacts/heart.png" alt="">
                                         </div>
                                         <div class="circle">
-                                            <img (click)="saveReaction(annonce.idAnnonce!,'bravo')"
+                                            <img (click)="saveReaction(annonce.idAnnonce!,'bonne')"
                                                 style="margin-left: -10px;width: 30px;height: 30px;object-fit: cover;cursor: pointer;"
                                                 src="assets/front-assets/images/reacts/bravo.png" alt="">
                                         </div>
                                         <div class="circle">
-                                            <img (click)="saveReaction(annonce.idAnnonce!,'triste')"
+                                            <img (click)="saveReaction(annonce.idAnnonce!,'intérssant')"
                                                 style="margin-left: -7px;width: 30px;height: 30px;object-fit: cover;cursor: pointer;"
                                                 src="assets/front-assets/images/reacts/triste.png" alt="">
                                         </div>
                                         <div style="margin-left: -11px;" class="circle">
-                                            <img (click)="saveReaction(annonce.idAnnonce!,'grr')"
+                                            <img (click)="saveReaction(annonce.idAnnonce!,'cher')"
                                                 style="width: 30px;height: 30px;object-fit: cover;"
                                                 src="assets/front-assets/images/reacts/grr.png" alt="">
                                         </div>
@@ -145,31 +145,28 @@
                         <h5 class="mb-4">Property Details</h5>
                         <ul class="homes-list clearfix">
                             <li>
-                                <span class="font-weight-bold mr-1">Property ID:</span>
-                                <span class="det">{{annonce.idAnnonce}}</span>
+                                <span class="font-weight-bold mr-1">statut de l'offre:</span>
+                                <span class="det">{{annonce.offerType}}</span>
                             </li>
                             <li>
-                                <span class="font-weight-bold mr-1">Property Type:</span>
+                                <span class="font-weight-bold mr-1">Type:</span>
                                 <span class="det">{{annonce.typeProp}}</span>
                             </li>
+                           
                             <li>
-                                <span class="font-weight-bold mr-1">Property status:</span>
-                                <span class="det">à {{annonce.offerType}}</span>
-                            </li>
-                            <li>
-                                <span class="font-weight-bold mr-1">Property Price:</span>
+                                <span class="font-weight-bold mr-1">prix:</span>
                                 <span class="det">{{annonce.price}}dt</span>
                             </li>
                             <li>
-                                <span class="font-weight-bold mr-1">Rooms:</span>
+                                <span class="font-weight-bold mr-1">chambres:</span>
                                 <span class="det">{{annonce.roomsNum}}</span>
                             </li>
                             <li>
-                                <span class="font-weight-bold mr-1">Bedrooms:</span>
+                                <span class="font-weight-bold mr-1">chambre à coucher:</span>
                                 <span class="det">{{annonce.bedNum}}</span>
                             </li>
                             <li>
-                                <span class="font-weight-bold mr-1">Bath:</span>
+                                <span class="font-weight-bold mr-1">salle de bain:</span>
                                 <span class="det">{{annonce.bathNum}}</span>
                             </li>
                             <li>
@@ -177,21 +174,21 @@
                                 <span class="det">{{annonce.garagenum}}</span>
                             </li>
                             <li>
-                                <span class="font-weight-bold mr-1">Year Built:</span>
+                                <span class="font-weight-bold mr-1">Ydate de construction:</span>
                                 <span class="det">{{annonce.yearBuilt|date}}</span>
                             </li>
                         </ul>
 
                     </div>
                     <div class="floor-plan property wprt-image-video w50 pro">
-                        <h5>Floor Plans</h5>
+                        <h5> Plan</h5>
                         <!-- <img style="width: 100%;" alt="image" src="assets/front-assets/images/bg/floor-plan-1.png"> -->
                         <img style="width: 100%;" alt="image" src="{{ annonce.imageplan }}">
 
                     </div>
 
                     <div class="property wprt-image-video w50 pro">
-                        <h5>Property Video</h5>
+                        <h5>Video</h5>
                         <video style="width: 100%;" *ngIf="annonce.video && annonce.video.includes('mp4')" controls="true">
                             <source type="video/webm" src="{{ annonce.video }}" />
                             <source type="video/mp4" src="{{ annonce.video }}" />
