@@ -6,6 +6,7 @@ import { UserService } from '../service/user.service';
 import Swal from 'sweetalert2';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { TokenStorageService } from '../service/token-storage.service';
 
 
 const httpOptions = {
@@ -22,13 +23,15 @@ const httpOptions = {
 export class HeaderComponent implements OnInit {
 
   public landingPage:string = "/home/dashboard/order";
-  
+  currentUser:any;
 
 
-  constructor() {}
+  constructor(private token:TokenStorageService) {
+  }
 
   ngOnInit(): void {
     document.getElementById("app-body")!.className = "homepage-9 hp-6 homepage-1"
+    this.currentUser = this.token.getUser();
 
   }
 

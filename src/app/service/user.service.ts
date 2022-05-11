@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Imageuser } from '../entity/imageuser';
 import { User } from '../entity/user';
 
 const httpOptions = {
@@ -19,6 +20,15 @@ export class UserService {
   public loggedUser: string;
   public isloggedIn: Boolean = false;
   public roles: string[];
+
+  uploadedImage: File;
+  dbImage: any;
+  postResponse: any;
+  successResponse: string;
+  image: any;
+  idImage:any;
+  idUser:any;
+
  readonly API_URL = 'http://localhost:8081/DariTn/user';
   constructor(private httpClient: HttpClient) { }
 
@@ -40,10 +50,17 @@ public addUser(user :User):Observable<any>{
   return this.httpClient.post<any>("http://localhost:8081/DariTn/api/auth/signup",user, httpOptions)
 
 }
-/* public lockUser(idUser: any,status:any):Observable<any>{
-  return this.httpClient.post(`${this.API_URL}/lockUser/${idUser}/${status}`)
+public image1(user:User,image:Imageuser):Observable<any>{
+this.idImage=image.idImageUser;
+this.idUser=user.id;
+  return this.httpClient.post<any>("http://localhost:8081/DariTn/imageUser/affect-image-to-user/"+this.idImage+"/"+this.idUser, httpOptions)
 
-} */
+}
+
+ public lockUser(user: any):Observable<any>{
+  return this.httpClient.put(`${this.API_URL}/activate-user/`,user)
+
+} 
 public loginUserFormRemote(user :User):Observable<any>{
   return this.httpClient.post<any>("http://localhost:8081/DariTn/api/auth/signin",user, httpOptions)
 
@@ -57,5 +74,25 @@ forgotPassword(email: string) {
 getRoles(): Observable<any>{
 return this.httpClient.get("http://localhost:8081/DariTn/role/allRoles")
 }
+
+//*******************statistics******************* */
+getCountUserURL = "http://localhost:8081/DariTn/user/count-user";
+getNbDisabledURL = "http://localhost:8081/DariTn/user/nbDisabled";
+getMinAgeUserURL=" http://localhost:8081/DariTn/user/min-age";
+getMaxAgeUserURL="http://localhost:8081/DariTn/user/max-age"
+
+
+ getMinAgeUser(): Observable<any> {
+  return this.httpClient.get(this.getMinAgeUserURL,{responseType:'text'});
+} 
+getNbDisabledUsers(): Observable<any> {
+  return this.httpClient.get(this.getNbDisabledURL,{responseType:'text'});
+}
+getCountUser(): Observable<any> {
+  return this.httpClient.get(this.getCountUserURL,{responseType:'text'});
+}
+getMaxAgeUser(): Observable<any> {
+  return this.httpClient.get(this.getMaxAgeUserURL,{responseType:'text'});
+} 
 
 }

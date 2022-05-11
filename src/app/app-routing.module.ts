@@ -12,13 +12,15 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { ChatComponent } from './users/chat/chat.component';
 import { updatePasswordComponent } from './users/update-password/update-password.component';
 import { ForgotPasswordComponent } from './users/forgot-password/forgot-password.component';
+import { AuthorizeGuardService } from './service/AuthorizeGuardService.service';
+import { AuthentifguardserviceService } from './service/AuthentifGuard.service';
 
 const routes: Routes = [
   { path: 'home' ,component: HomeComponent},
   { path: '' ,component: HomeComponent},
   { path: 'annonces' ,component: AnnonceComponent},
   { path: 'admin' ,component: AdminComponent},
-  { path: 'admin/annonces' ,component: AdminAnnoncesComponent},
+  { path: 'admin/annonces' ,component: AdminAnnoncesComponent, canActivate: [AuthorizeGuardService] },
   { path: 'admin/users' ,component: AdminUsersComponent},
   {path:'profile',component:ProfileComponent},
   {path:'chat',component:ChatComponent},

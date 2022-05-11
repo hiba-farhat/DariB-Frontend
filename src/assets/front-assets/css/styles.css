@@ -5698,12 +5698,15 @@ element.style {
 
 .login-and-register-form .main-register .custom-form input[type="text"],
 .login-and-register-form .main-register .custom-form input[type=email],
+.login-and-register-form .main-register .custom-form input[type=date],
 .login-and-register-form .main-register .custom-form input[type=password] {
   padding-left: 20px;
 }
 
 .login-and-register-form .custom-form textarea,
 .login-and-register-form .custom-form input[type="text"],
+.login-and-register-form .custom-form input[type="date"],
+
 .login-and-register-form .custom-form input[type=email],
 .login-and-register-form .custom-form input[type=password],
 .login-and-register-form .custom-form input[type=button] {

@@ -9,8 +9,10 @@
             <h3>Welcome to <span>Dari<strong>.Tn</strong></span></h3>
             <div class="soc-log fl-wrap">
                 <p>Login</p>
-                <a  class="facebook-log" (click)="signInWithFB()"><i class="fa fa-facebook-official"></i>Log in with Facebook</a>
-                <a class="twitter-log" (click)="signInWithGoogle()"><i class="fa fa-gmail-official"></i> Log in with Gmail</a>
+                <a class="facebook-log" (click)="signInWithFB()"><i class="fa fa-facebook-official"></i>Log in with
+                    Facebook</a>
+                <a class="twitter-log" (click)="signInWithGoogle()"><i class="fa fa-gmail-official"></i> Log in with
+                    Gmail</a>
             </div>
             <div class="log-separator fl-wrap"><span>Or</span></div>
             <div id="tabs-container">
@@ -27,10 +29,12 @@
                     <div id="tab-1" class="tab-contents">
                         <div class="custom-form">
                             <form #loginform="ngForm" (ngSubmit)="loginUser()" name="registerform">
-                                <label>Username  * </label>
-                                <input name="username" type="text" onClick="this.select()" value="" [(ngModel)]="user.username" >
+                                <label>Username * </label>
+                                <input name="username" type="text" onClick="this.select()" value=""
+                                    [(ngModel)]="user.username">
                                 <label>Password * </label>
-                                <input name="password" type="password" onClick="this.select()" value="" [(ngModel)]="user.password">
+                                <input name="password" type="password" onClick="this.select()" value=""
+                                    [(ngModel)]="user.password">
                                 <button type="submit" class="log-submit-btn"><span>Log In</span></button>
                                 <div class="clearfix"></div>
                                 <div class="filter-tags">
@@ -39,32 +43,41 @@
                                 </div>
                             </form>
                             <div class="lost_password">
-                                 <a routerLink="/reset">Lost Your Password?</a>
+                                <a routerLink="/reset">Lost Your Password?</a>
                             </div>
                         </div>
                     </div>
                     <div class="tab">
                         <div id="tab-2" class="tab-contents">
                             <div class="custom-form">
-                                <form #registerform="ngForm" (ngSubmit)="registerUser()" method="post" name="registerform" class="main-register-form"
-                                    id="main-register-form2">
+                                <form #registerform="ngForm" (ngSubmit)="registerUser()" method="post"
+                                    name="registerform" class="main-register-form" id="main-register-form2">
                                     <label>First Name * </label>
-                                    <input name="name" type="text" onClick="this.select()" value="" [(ngModel)]="user.nom">
+                                    <input name="name" type="text" onClick="this.select()" value=""
+                                        [(ngModel)]="user.nom">
                                     <label>Second Name *</label>
-                                    <input name="name2" type="text" onClick="this.select()" value="" [(ngModel)]="user.prenom">
+                                    <input name="name2" type="text" onClick="this.select()" value=""
+                                        [(ngModel)]="user.prenom">
                                     <label>Email Address *</label>
-                                    <input name="email" type="text" onClick="this.select()" value="" [(ngModel)]="user.email">
+                                    <input name="email" type="text" onClick="this.select()" value=""
+                                        [(ngModel)]="user.email">
                                     <label>Username *</label>
-                                    <input name="username" type="text" onClick="this.select()" value="" [(ngModel)]="user.username">
+                                    <input name="username" type="text" onClick="this.select()" value=""
+                                        [(ngModel)]="user.username">
                                     <label>Address *</label>
-                                    <input name="address" type="text" onClick="this.select()" value="" [(ngModel)]="user.address">
+                                    <input name="address" type="text" onClick="this.select()" value=""
+                                        [(ngModel)]="user.address">
                                     <label>Password *</label>
-                                    <input name="password" type="password" onClick="this.select()" value=""[(ngModel)]="user.password">
-
+                                    <input name="password" type="password" onClick="this.select()" value=""
+                                        [(ngModel)]="user.password">
+                                        <label>Birth Date *</label>
+                                        <input name="birth" type="date" onClick="this.select()" value=""
+                                            [(ngModel)]="user.birth">
                                     <label>Phone number * </label>
-                                    <input name="tel" type="text" onClick="this.select()" value="" [(ngModel)]="user.tel">
-                                        
- <!--                                    <label>Role * </label>
+                                    <input name="tel" type="text" onClick="this.select()" value=""
+                                        [(ngModel)]="user.tel">
+
+                                    <!--                                    <label>Role * </label>
                                     <input name="role" type="text" onClick="this.select()" value="" > -->
 
                                     <button type="submit" class="log-submit-btn"><span>Register</span></button>

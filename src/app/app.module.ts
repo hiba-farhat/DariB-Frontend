@@ -30,6 +30,7 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from '@abacritt/angularx-social-login';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 
 
@@ -50,6 +51,7 @@ import {
     updatePasswordComponent,
     CodeActivationComponent,
     ForgotPasswordComponent,
+    ChangepasswordComponent,
     
   ],
   imports: [

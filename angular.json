@@ -49,7 +49,7 @@
               "src/assets/front-assets/css/styles.css",
               "src/assets/front-assets/css/maps.css",
               "src/assets/front-assets/css/colors/pink.css",
-              "node_modules/ngx-toastr/toastr.css" 
+              "node_modules/ngx-toastr/toastr.css"
 
             ],
             "scripts": [
@@ -83,7 +83,11 @@
               "src/assets/front-assets/js/forms-2.js",
               "src/assets/front-assets/js/map-style2.js",
               "src/assets/front-assets/js/range.js",
-              "src/assets/front-assets/js/color-switcher.js"
+              "src/assets/front-assets/js/color-switcher.js",
+              "src/assets/front-assets/js/chat.js"
+              
+              
+
         
             
             ]
