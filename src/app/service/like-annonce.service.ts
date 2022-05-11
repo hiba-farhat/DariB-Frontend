@@ -8,6 +8,7 @@ import { LikeAnnonce } from '../entity/likeAnnonce';
 
 
 
+
 type EntityResponseType = HttpResponse<LikeAnnonce>;
 type EntityArrayResponseType = HttpResponse<LikeAnnonce[]>;
 @Injectable({
