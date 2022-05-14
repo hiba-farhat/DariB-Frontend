@@ -10,9 +10,11 @@ export class User {
     photo: any;
     status:any;
     role:string[];
-
+    stateUser:any;
+    fileName: string;
+    birth:any;
 
     constructor(){
-        this.role=[]
+   
     }
 }

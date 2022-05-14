@@ -78,7 +78,63 @@
 
                     <div class="col-lg-9 col-md-12 col-xs-12 pl-0 user-dash2">
 
-                        <!--                         <a class="nav-link" (click)="onOpenModal('add')">Add User </a>
+                        <!--                             **************Stat*****************
+ -->
+                        <div class="dashborad-box stat bg-white">
+                            <h4 class="title">Statistics</h4>
+                            <div class="section-body">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6 col-xs-12 dar pro mr-3">
+                                        <div class="item">
+                                            <div class="icon">
+                                                <i class="fa fa-minus-square" style="color: white;" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="info">
+                                                <h6 class="number">{{age2}}</h6>
+                                                <p class="type ml-1"> <strong>Min Age</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 col-xs-12 dar rev mr-3">
+                                        <div class="item">
+                                            <div class="icon">
+                                                <i class="fas fa fa-users" style="color: white;"></i>
+                                            </div>
+                                            <div class="info">
+                                                <h6 class="number">{{nbUsers}}</h6>
+                                                <p class="type ml-1"><strong>Total Users</strong> </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 dar com mr-3">
+                                        <div class="item mb-0">
+                                            <div class="icon">
+                                                <i class="fas fa-plus-square " style="color: white;"></i>
+                                            </div>
+                                            <div class="info">
+                                                <h6 class="number">{{age1}}</h6>
+                                                <p class="type ml-1"><strong>Max Age</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 dar booked">
+                                        <div class="item mb-0">
+                                            <div class="icon">
+                                                <i class="fas fa-ban" style="color: white;"></i>
+                                            </div>
+                                            <div class="info">
+                                                <h6 class="number">{{nbDisabled}}</h6>
+                                                <p class="type ml-1"><strong>Nombre Users Disabled</strong></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- *******************End stat**********
+ -->
+                        <!--                         <a class="nav-link" (click)="onOpenModal(null,'add')">Add User </a>
  -->
                         <aside class="col-lg-3 col-md-12 " style="position:relative; left:780px; top:50px;">
                             <div class="widget">
@@ -93,25 +149,14 @@
                             </div>
                         </aside>
                         <div>
-                            <button type="button" (click)="onOpenModal('add')"
-                                class="btn btn-outline-info btn-lg btn-lg btn-circle ml-2"><i class="fa fa-plus"></i>
+                            <button type="button" (click)="onOpenModal(null,'add')"
+                                class="btn btn-outline-info btn-lg btn-lg btn-circle ml-2"><i class="fa fa-user-plus"></i>
                             </button>
                             <br>
                             <br>
                         </div>
 
-                        <div *ngIf="alert" class="alert alert-success d-flex align-items-center" role="alert">
-                            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
-                                <use xlink:href="#check-circle-fill" />
-                            </svg>
 
-
-                            <strong> User added successfully !</strong>
-                            <button (click)="closeAlert()" type="button" class="close" data-dismiss="modal"
-                                aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
 
 
 
@@ -137,6 +182,8 @@
                                                                 Username
                                                             </th>
                                                             <th scope="col" class="border-0 text-uppercase font-medium">
+                                                                enabled</th>
+                                                            <th scope="col" class="border-0 text-uppercase font-medium">
                                                                 First Name</th>
 
                                                             <th scope="col" class="border-0 text-uppercase font-medium">
@@ -158,32 +205,22 @@
 
                                                             <td>{{u.id}}</td>
                                                             <td>{{u.username}}</td>
+                                                            <td>{{u.stateUser}}</td>
                                                             <td>{{u.nom}}</td>
                                                             <td>{{u.prenom}}</td>
                                                             <td>{{u.email}}</td>
                                                             <td>{{u.tel}}</td>
                                                             <td>{{u.address}}</td>
 
-                                                            <!-- <td>
-                          <span class="text-muted">15 Mar 1988</span><br>
-                          <span class="text-muted">10: 55 AM</span>
-                      </td> -->
-                                                            <!--   <td>
-                        <select class="form-control category-select" id="exampleFormControlSelect1">
-                          <option>Modulator</option>
-                          <option>Admin</option>
-                          <option>User</option>
-                          <option>Subscriber</option>
-                        </select>
-                      </td> -->
+
                                                             <td>
-                                                                <button type="button" (click)="onOpenModal('lock',u)"
+                                                                <button type="button" (click)="onOpenModal(u,'lock')"
                                                                     class="btn btn-outline-info btn-circle btn-lg btn-circle"><i
                                                                         class="fa fa-key"></i> </button>
-                                                                <button type="button" (click)="onOpenModal('delete',u)"
+                                                                <button type="button" (click)="onOpenModal(u,'delete')"
                                                                     class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
                                                                         class="fa fa-trash"></i> </button>
-                                                                <button type="button" (click)="onOpenModal('edit',u)"
+                                                                <button type="button" (click)="onOpenModal(u,'edit')"
                                                                     class="btn btn-outline-info btn-circle btn-lg btn-circle ml-2"><i
                                                                         class="fa fa-edit"></i> </button>
 
@@ -239,6 +276,24 @@
                                                 <input type="password" ngModel name="password" class="form-control"
                                                     id="password" placeholder="password" required>
                                             </div>
+
+
+                                            <div class="form-group">
+                                                <label for="birth">Birth Date :</label>
+                                                <!--  <input type="date"  ngModel name="birth" class="form-control" id="birth" 
+                                                       required /> -->
+                                                <input type="date" ngModel name="birth" value="today | date:'yyyy-MM-dd'"
+                                                    (ngModelChange)="today = $event" name="birth" id="birth"
+                                                    class="form-control form-control-rounded" />
+                                                
+
+                                            </div>
+
+
+                                            <!-- <div class="alert alert-danger" *ngIf="birthdate.invalid && birthdate.touched">
+                                                Birth Date is a Required Field !
+                                              </div> -->
+
                                             <div class="form-group">
                                                 <label for="tel">Phone</label>
                                                 <input type="text" ngModel name="tel" class="form-control" id="tel"
@@ -249,48 +304,21 @@
                                                 <input type="text" ngModel name="address" class="form-control"
                                                     id="address" placeholder="address" required>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="role">Role </label>
+
+
+                                            <div class="modal-footer">
+                                                <button type="button" id="add-User-form" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+
+                                                <button [disabled]="addForm.invalid" type="submit"
+                                                    class="btn btn-primary">Save changes</button>
                                             </div>
+
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <!--                         <div *ngFor="let role of lstRoles">
-                                                    <input ngModel name="role" type="checkbox" [value]="role.name"
-                                                        (change)="getRoleName($event,role.name)" >{{role.name}}
-
-                                                </div> -->
-                        <!-- 
-                                                <div *ngFor="let item of checkboxesDataList">
-                                                    <input ngModel type="checkbox" name="role" id="role" [value]=fetchCheckedIDs() (change)="changeSelection()">{{item.label}}
-                                                  </div>
- -->
-
-
-                        <!--   <select class="form-select" name="role" ngModel name="role">
-                                                    <option value="" selected disabled>Please select a status </option>
-                                                    <option value="[vendeur]"> vendeur</option>
-                                                    <option value=" [ " admin "] "> admin </option>
-
-                                                </select> 
-
-
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" id="add-User-form" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button>
-                                                <button [disabled]="addForm.invalid" type="submit"
-                                                    class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>-->
 
                         <!-- Edit Modal -->
                         <div class="modal fade" id="updateUserModal" tabindex="-1" role="dialog"
@@ -299,7 +327,8 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="updateUserModalLabel">Edit User
-                                            {{editUser?.nom}}</h5>
+                                            <strong>{{editUser?.nom}}</strong>
+                                        </h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -324,6 +353,9 @@
                                                     class="form-control" id="password" aria-describedby="emailHelp"
                                                     placeholder="password">
                                             </div>
+
+                                          
+
                                             <div class="form-group">
                                                 <label for="prenom">Last Name</label>
                                                 <input type="text" ngModel="{{editUser?.prenom}}" name="prenom"
@@ -347,6 +379,13 @@
                                                 <input type="text" ngModel="{{editUser?.tel}}" name="tel"
                                                     class="form-control" id="tel" name="tel" placeholder="Phone Number">
                                             </div>
+
+                                            <div class="form-group">
+                                                <label for="birth">Birth Date </label>
+                                                <input type="date" ngModel="{{editUser?.birth | date :'shortDate'}}" name="birth"
+                                                    class="form-control" id="birth" aria-describedby="emailHelp"
+                                                    placeholder="birth">
+                                            </div>
                                             <div class="form-group">
                                                 <label for="address">Address</label>
                                                 <input type="text" ngModel="{{editUser?.address}}" name="address"
@@ -364,20 +403,23 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!-- END Edit Modal -->
                         <!-- Delete Modal -->
                         <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog"
                             aria-labelledby="deleteModelLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteModelLabel">Delete User</h5>
+                                        <h5 class="modal-title" id="deleteModelLabel">Delete User
+                                            <strong>{{deleteUser?.nom}}</strong>
+                                        </h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Are you sure you want to delete User {{deleteUser?.nom}}?</p>
+                                        <p>Are you sure you want to delete User <strong>{{deleteUser?.nom}}</strong> ?
+                                        </p>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">No</button>
@@ -388,30 +430,92 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- END Delete Modal -->
 
-                        <!--     <div class="modal fade" id="lockUserModal" tabindex="-1" role="dialog"
-                        aria-labelledby="lockModelLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="lockModelLabel">Delete User</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Are you sure you want to lock User {{lockUser?.nom}}?</p>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">No</button>
-                                        <button (click)="onLockUser(lockUser?.id,lockUser?.status)" class="btn btn-danger"
-                                            data-dismiss="modal">Yes</button>
+
+
+                        <div class="modal fade" id="LockUserModal" tabindex="-1" role="dialog"
+                            aria-labelledby="UserLockModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="UserLockModalLabel">Lock User
+                                            <strong>{{lockUser?.nom}}</strong>
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form #lockForm="ngForm">
+                                            <p>Are you sure you want to lock/unlock User
+                                                <strong>{{lockUser?.nom}}</strong> ?
+                                            </p>
+                                            <div class="form-group" hidden>
+
+                                                <input type="text" ngModel="{{lockUser?.id}}" name="id"
+                                                    class="form-control" id="id" aria-describedby="emailHelp"
+                                                    placeholder="id" hidden>
+                                            </div>
+                                            <div class="form-group" hidden>
+
+                                                <input type="text" ngModel="{{lockUser?.nom}}" name="nom"
+                                                    class="form-control" id="name" aria-describedby="emailHelp"
+                                                    placeholder="First Name" hidden>
+                                            </div>
+                                            <div class="form-group" type="aria-hidden" hidden>
+                                                <input type="text" ngModel="{{lockUser?.password}}" name="password"
+                                                    class="form-control" id="password" aria-describedby="emailHelp"
+                                                    placeholder="password" hidden>
+                                            </div>
+
+                                            <div class="form-group" type="aria-hidden" hidden>
+                                                <input type="date" ngModel="{{lockUser?.birth}}" name="birth"
+                                                    class="form-control" id="birth" aria-describedby="emailHelp"
+                                                    placeholder="birth" hidden>
+                                            </div>
+
+                                            <div class="form-group" hidden>
+                                                <input type="text" ngModel="{{lockUser?.prenom}}" name="prenom"
+                                                    class="form-control" id="prenom" aria-describedby="emailHelp"
+                                                    placeholder="Last Name" hidden>
+                                            </div>
+                                            <div class="form-group" hidden>
+                                                <input type="text" ngModel="{{lockUser?.username}}" name="username"
+                                                    class="form-control" id="username" aria-describedby="emailHelp"
+                                                    placeholder="Username" hidden>
+                                            </div>
+                                            <div class="form-group" hidden>
+                                                <label for="email">Email Address</label>
+                                                <input type="email" ngModel="{{lockUser?.email}}" name="email"
+                                                    class="form-control" id="email" placeholder="Email" hidden>
+                                            </div>
+
+                                            <div class="form-group" hidden>
+                                                <input type="text" ngModel="{{lockUser?.tel}}" name="tel"
+                                                    class="form-control" id="tel" name="tel" placeholder="Phone Number"
+                                                    hidden>
+                                            </div>
+                                            <div class="form-group" hidden>
+                                                <input type="text" ngModel="{{lockUser?.address}}" name="address"
+                                                    class="form-control" id="address" placeholder="Address" hidden>
+                                            </div>
+                                            <div class="form-group" hidden>
+                                                <input type="text" ngModel="{{lockUser?.stateUser}}" name="stateUser"
+                                                    class="form-control" id="stateUser" placeholder="stateUser" hidden>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" id="" data-dismiss="modal"
+                                                    class="btn btn-secondary">Close</button>
+                                                <button (click)="onLockUser(lockForm.value)" data-dismiss="modal"
+                                                    class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div> -->
-
 
                         <!-- START FOOTER -->
                         <app-admin-footer></app-admin-footer>

@@ -47,6 +47,7 @@
         
         <div class="clearfix"></div>
         <!-- Header Container / End -->
+        <app-chat></app-chat>
 
         <!-- START SECTION DASHBOARD -->
         <section class="user-page section-padding">
@@ -435,7 +436,20 @@
         </script>
 
         <!-- MAIN JS -->
-        <script src="js/script.js"></script>
+        <script src="src/assets/front-assets/js/chat.js"></script>
+        <script src=""></script>
+        <script>$(document).ready(function(){
+            $(".chat_on").click(function(){
+                $(".Layout").toggle();
+                $(".chat_on").hide(300);
+            });
+            
+               $(".chat_close_icon").click(function(){
+                $(".Layout").hide();
+                   $(".chat_on").show(300);
+            });
+            
+          });</script>
 
     </div>
     <!-- Wrapper / End -->

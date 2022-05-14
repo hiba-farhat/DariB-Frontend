@@ -11,8 +11,31 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
+<!--   <script src="src/assets/front-assets/js/chat.js"></script>
+ --></head>
 <body id="app-body" class="homepage-9 hp-6 homepage-1">
   <app-root></app-root>
+
+ 
+
+
+  <script src="assets/front-assets/js/chat.js"></script>
+
+  <script>$(document).ready(function(){
+    $(".chat_on").click(function(){
+        $(".Layout").toggle();
+        $(".chat_on").hide(300);
+    });
+    
+       $(".chat_close_icon").click(function(){
+        $(".Layout").hide();
+           $(".chat_on").show(300);
+    });
+    
+  });</script>
+
+
+
+
 </body>
 </html>
